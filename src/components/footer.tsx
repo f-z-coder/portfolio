@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import Link from "next/link";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 
-export const Footer=()=> {
+export const Footer = () => {
   return (
     <footer className="border-t">
       <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
@@ -14,7 +14,11 @@ export const Footer=()=> {
           <Link href="https://github.com/f-z-coder" target="_blank" rel="noopener noreferrer">
             <GithubIcon className="h-5 w-5" />
           </Link>
-          <Link href="https://www.linkedin.com/in/f-z-coder/" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://www.linkedin.com/in/f-z-coder/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedinIcon className="h-5 w-5" />
           </Link>
           <Link href="https://x.com/fz_coder" target="_blank" rel="noopener noreferrer">
@@ -23,5 +27,5 @@ export const Footer=()=> {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

@@ -1,22 +1,37 @@
-import Image from 'next/image'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const About=()=> {
+export const About = () => {
   return (
-    <section id="about" className="container py-24 sm:py-32">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">About Me</h2>
-      <div className="grid gap-8 md:grid-cols-2">
-        <Card>
+    <section id="about" className="container py-12 sm:py-24">
+      <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        About Me
+      </h2>
+      <div className="mb-12 flex justify-center">
+        <Image
+          src="/faiz-shaikh.jpg"
+          alt="Faiz Shaikh"
+          width={300}
+          height={300}
+          className="rounded-full object-cover"
+        />
+      </div>
+      <div className="grid gap-8">
+        <Card className="mx-auto w-full max-w-5xl">
           <CardHeader>
             <CardTitle>Summary</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              I am a skilled Full-Stack Web Developer specialized in developing fully responsive websites and web apps that meet industry standards. With expertise in Next.js, React.js and TypeScript, I efficiently create robust web apps. My problem-solving skills enable me to tackle challenges effectively, ensuring optimal solutions for complex issues.
+              I am a skilled Full-Stack Web Developer specialized in developing fully responsive
+              websites and web apps that meet industry standards. With expertise in Next.js,
+              React.js and TypeScript, I efficiently create robust web apps. My problem-solving
+              skills enable me to tackle challenges effectively, ensuring optimal solutions for
+              complex issues.
             </p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="mx-auto w-full max-w-5xl">
           <CardHeader>
             <CardTitle>Education</CardTitle>
           </CardHeader>
@@ -27,15 +42,6 @@ export const About=()=> {
           </CardContent>
         </Card>
       </div>
-      <div className="mt-12 flex justify-center">
-        <Image
-          src="/placeholder.svg"
-          alt="Faiz Shaikh"
-          width={300}
-          height={300}
-          className="rounded-full object-cover"
-        />
-      </div>
     </section>
-  )
-}
+  );
+};

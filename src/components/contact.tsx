@@ -1,108 +1,73 @@
-'use client'
+import Link from "next/link";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { LinkedinIcon, MailIcon, PhoneIcon, ExternalLinkIcon, TwitterIcon } from "lucide-react";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from 'lucide-react'
+const contactInfo = [
+  {
+    icon: <MailIcon className="h-6 w-6" />,
+    label: "Email",
+    value: "faizshaikh72740@gmail.com",
+    href: "mailto:faizshaikh72740@gmail.com",
+  },
+  {
+    icon: <PhoneIcon className="h-6 w-6" />,
+    label: "Phone",
+    value: "+91 9112677274",
+    href: "tel:+919112677274",
+  },
+  {
+    icon: <LinkedinIcon className="h-6 w-6" />,
+    label: "LinkedIn",
+    value: "Faiz Shaikh",
+    href: "https://www.linkedin.com/in/f-z-coder/",
+  },
 
-export const Contact=()=> {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
+  {
+    icon: <TwitterIcon className="h-6 w-6" />,
+    label: "Twitter",
+    value: "@fz_coder",
+    href: "https://x.com/fz_coder",
+  },
+];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your server
-    console.log('Form submitted:', formData)
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' })
-  }
-
+export const Contact = () => {
   return (
-    <section id="contact" className="container py-24 sm:py-32">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Contact Me</h2>
-      <div className="grid gap-8 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Get in Touch</CardTitle>
-            <CardDescription>Fill out the form and I'll get back to you as soon as possible.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit}>
-              <div className="grid gap-4">
-                <div className="grid gap-2">
-                  <label htmlFor="name">Name</label>
-                  <Input 
-                    id="name" 
-                    placeholder="Enter your name" 
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email">Email</label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message">Message</label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Enter your message" 
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <Button className="w-full mt-4" type="submit">Send Message</Button>
-            </form>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Contact Information</CardTitle>
-            <CardDescription>Feel free to reach out through any of these channels.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <MailIcon className="h-5 w-5" />
-              <span>faizsh aikh72740@gm ail.com</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <PhoneIcon className="h-5 w-5" />
-              <span>9112677274</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <LinkedinIcon className="h-5 w-5" />
-              <a href="https://linkedin.com/in/faiz-shaikh713" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/faiz-shaikh713
-              </a>
-            </div>
-            <div className="flex items-center space-x-2">
-              <GithubIcon className="h-5 w-5" />
-              <a href="https://github.com/F-z-Coder" target="_blank" rel="noopener noreferrer">
-                F-z-Coder
-              </a>
-            </div>
-          </CardContent>
-        </Card>
+    <section id="contact" className="container py-12 sm:py-24">
+      <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        Get in Touch
+      </h2>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {contactInfo.map((info, index) => (
+          <Card key={index} className="flex flex-col">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                {info.icon}
+                {info.label}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-grow flex-col justify-between">
+              <CardDescription className="text-lg">{info.value}</CardDescription>
+              <Button asChild variant="outline" className="mt-4">
+                <Link href={info.href} target="_blank" rel="noopener noreferrer">
+                  Connect
+                  <ExternalLinkIcon className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="mt-12 text-center">
+        <h3 className="mb-4 text-2xl font-semibold">{"Let's Build Something Amazing Together"}</h3>
+        <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
+          {`I'm always open to discussing new projects, creative ideas, or opportunities to be part of
+          your visions. Feel free to reach out through any of the channels above.`}
+        </p>
+        <Button asChild size="lg">
+          <Link href="mailto:faizshaikh72740@gmail.com">Send a Message</Link>
+        </Button>
       </div>
     </section>
-  )
-}
+  );
+};

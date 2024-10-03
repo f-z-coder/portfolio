@@ -1,31 +1,60 @@
-'use client'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-import { Badge } from '@/components/ui/badge'
+const skillCategories = {
+  "Programming Languages": ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "Java"],
+  "Frameworks/Libraries": [
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "Tailwind CSS",
+    "Material-UI",
+    "Shadcn-UI",
+    "React Router",
+    "Redux",
+    "Jotai",
+    "TanStack Query",
+    "TanStack Table",
+    "I18next",
+    "Jest",
+  ],
+  Databases: ["MongoDB", "MySQL"],
+  Tools: ["Git", "GitHub", "Jira", "Docker", "AWS"],
+  "Soft Skills": [
+    "Problem Solving",
+    "Leadership",
+    "Teamwork",
+    "Communication",
+    "Time Management",
+    "Adaptability",
+  ],
+};
 
-const skills = {
-  "Programming": ["HTML", "CSS", "JavaScript", "TypeScript", "Java", "Python"],
-  "Frameworks/Libraries": ["Next.js", "React", "Tailwind CSS", "Material-UI", "Shadcn-UI", "React Router", "Redux", "Jotai", "TanStack Query", "TanStack Table", "I18next", "Node.js", "Express", "Jest"],
-  "Databases": ["MongoDB", "MySQL"],
-  "Tools": ["Git", "GitHub", "Jira"],
-  "Soft Skills": ["Problem Solving", "Leadership", "Teamwork", "Communication"],
-}
-
-export const Skills=()=> {
+export const Skills = () => {
   return (
-    <section id="skills" className="container py-24 sm:py-32">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Skills</h2>
-      <div className="grid gap-8 md:grid-cols-2">
-        {Object.entries(skills).map(([category, skillList]) => (
-          <div key={category}>
-            <h3 className="text-xl font-semibold mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillList.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
+    <section id="skills" className="container py-12 sm:py-24">
+      <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        Skills
+      </h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {Object.entries(skillCategories).map(([category, skills]) => (
+          <Card key={category} className="flex flex-col">
+            <CardHeader>
+              <CardTitle>{category}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <Badge key={skill} variant="secondary">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const experiences = [
   {
@@ -12,7 +12,8 @@ const experiences = [
       "Collaborating on project requirements and maintaining code quality through pull request reviews.",
       "Managing Jira tickets, assigning tasks, and ensuring timely delivery.",
     ],
-    technologies: "React, React Router, TypeScript, Tailwind CSS, Shadcn-UI, Jotai, TanStack Table, i18next",
+    technologies:
+      "React, React Router, TypeScript, Tailwind CSS, Shadcn-UI, Jotai, TanStack Table, i18next",
   },
   {
     title: "Web Developer Intern",
@@ -25,30 +26,36 @@ const experiences = [
     ],
     technologies: "Next.js, TypeScript, Redux",
   },
-]
+];
 
-export const Experience=()=> {
+export const Experience = () => {
   return (
-    <section id="experience" className="container py-24 sm:py-32">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Experience</h2>
+    <section id="experience" className="container py-12 sm:py-24">
+      <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        Experience
+      </h2>
       <div className="grid gap-8">
         {experiences.map((exp, index) => (
-          <Card key={index}>
+          <Card key={index} className="mx-auto w-full max-w-5xl">
             <CardHeader>
-              <CardTitle>{exp.title} at {exp.company}</CardTitle>
+              <CardTitle>
+                {exp.title} at {exp.company}
+              </CardTitle>
               <p className="text-sm text-muted-foreground">{exp.period}</p>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc space-y-2 pl-5">
                 {exp.responsibilities.map((resp, idx) => (
                   <li key={idx}>{resp}</li>
                 ))}
               </ul>
-              <p className="mt-4"><strong>Technologies:</strong> {exp.technologies}</p>
+              <p className="mt-4">
+                <strong>Technologies:</strong> {exp.technologies}
+              </p>
             </CardContent>
           </Card>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
