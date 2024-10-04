@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Faiz Shaikh" }],
   creator: "Faiz Shaikh",
   publisher: "Faiz Shaikh",
+  metadataBase: new URL("https://www.faiz-shaikh.in"),
   openGraph: {
     type: "website",
     locale: "en_US",
