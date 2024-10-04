@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my skills, experience, and pro
 
 ## 🚀 Live Demo
 
-[View live demo](https://portfolio-ten-phi-65.vercel.app)
+[View live demo](https://www.faiz-shaikh.in)
 
 ![Portfolio Screenshot](https://github.com/f-z-coder/portfolio/blob/main/public/website-preview.png)
 
