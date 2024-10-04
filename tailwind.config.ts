@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import { addVariablesForColors } from "./src/lib/add-variables-for-colors";
 const config: Config = {
   darkMode: ["class"],
   safelist: ["dark"],
@@ -59,6 +59,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
 export default config;

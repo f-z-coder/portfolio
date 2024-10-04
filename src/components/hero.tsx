@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
+import { BackgroundBeams } from "@/components/ui/background-beams";
 export const Hero = () => {
   return (
     <section
@@ -18,6 +18,7 @@ export const Hero = () => {
       <Button className="mt-8" size="lg" asChild>
         <Link href="#projects">View My Work</Link>
       </Button>
+      <BackgroundBeams />
     </section>
   );
 };
