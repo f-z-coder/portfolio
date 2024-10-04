@@ -94,12 +94,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={lora.className}>
         <SchemaMarkup />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <div className="flex min-h-screen flex-col p-4">
             <Header />
             <main className="flex-grow">{children}</main>
