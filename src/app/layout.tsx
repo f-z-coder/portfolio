@@ -12,7 +12,7 @@ const lora = Lora({ subsets: ["latin"] });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={lora.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <div className="flex min-h-screen flex-col p-4">
