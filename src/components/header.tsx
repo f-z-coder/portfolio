@@ -58,7 +58,7 @@ export const Header = () => {
         <div className="flex items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <Button className="h-max p-2 text-xs" asChild>
-              <a href="/Faiz_Resume_Web_Developer_V6.pdf" download="Faiz_Shaikh_Resume.pdf">
+              <a href="/Faiz_Resume_Web_Developer_V7.pdf" download="Faiz_Shaikh_Resume.pdf">
                 Download Resume
               </a>
             </Button>
