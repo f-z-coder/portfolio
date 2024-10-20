@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const experiences = [
   {
-    title: "UI Consultant",
-    company: "UIXperts Labs",
+    title: "Frontend Web Developer",
+    company: "Uixperts Labs",
     period: "July 2024 - Present",
     responsibilities: [
       "Leading development of a centralized platform for employee-related tasks, app access, and account administration, with multi-lingual support.",
