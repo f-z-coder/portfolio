@@ -11,6 +11,18 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "Jamaat-Time",
+    description: "Web app for accurate prayer timings in nearby mosques while traveling.",
+    features: [
+      "Up-to-date prayer timings",
+      "Mosque locator within 10km radius",
+      "User contributions",
+    ],
+    technologies: "Google Maps API, Google Places API",
+    github: "https://github.com/f-z-coder/Jammat-Time",
+    demo: "https://jamaat-time.netlify.app",
+  },
+  {
     title: "Image Processing App",
     description:
       "A web application for editing images online with real-time processing and high-quality output.",
@@ -28,16 +40,18 @@ const projects = [
     demo: "https://image-processing-app-frontend.netlify.app",
   },
   {
-    title: "Jamaat-Time",
-    description: "Web app for accurate prayer timings in nearby mosques while traveling.",
+    title: "Freelance Project - AC Service Website",
+    description: "Full-stack business website for a local AC service company.",
     features: [
-      "Up-to-date prayer timings",
-      "Mosque locator within 10km radius",
-      "User contributions",
+      "Server-side rendering (100/100 Performance)",
+      "Perfect SEO score (100/100)",
+      "Responsive design across devices",
+      "Custom branding and content strategy",
+      "Click-to-call functionality",
+      "Click-to-chat functionality",
     ],
-    technologies: "Google Maps API, Google Places API",
-    github: "https://github.com/f-z-coder/Jammat-Time",
-    demo: "https://jamaat-time.netlify.app",
+    technologies: "Next.js 14, TypeScript, Tailwind CSS, Shadcn UI, Server Components",
+    demo: "https://www.telanganaacservice.com",
   },
   {
     title: "Minimalistic TypeScript Express MongoDB Template",
@@ -95,16 +109,18 @@ export const Projects = () => {
                 <strong>Technologies:</strong> {project.technologies}
               </p>
             </CardContent>
-            <CardFooter className="flex justify-between">
-              <Button asChild>
-                <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                  GitHub
-                </Link>
-              </Button>
+            <CardFooter className={project.demo ? "flex justify-between" : "flex justify-end"}>
               {project.demo && (
-                <Button asChild variant="outline">
+                <Button asChild>
                   <Link href={project.demo} target="_blank" rel="noopener noreferrer">
                     Live Demo
+                  </Link>
+                </Button>
+              )}
+              {project.github && (
+                <Button asChild variant="outline">
+                  <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                    GitHub
                   </Link>
                 </Button>
               )}
