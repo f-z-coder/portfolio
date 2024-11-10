@@ -41,16 +41,15 @@ const projects = [
   },
   {
     title: "Freelance Project - AC Service Website",
-    description: "Full-stack business website for a local AC service company.",
+    description:
+      "End-to-end development of a high-performance, SEO-optimized business website for a local AC service company, designed to enhance lead generation and local visibility.",
     features: [
-      "Server-side rendering (100/100 Performance)",
-      "Perfect SEO score (100/100)",
-      "Responsive design across devices",
-      "Custom branding and content strategy",
-      "Click-to-call functionality",
-      "Click-to-chat functionality",
+      "Fully responsive design ensuring seamless experience across all devices",
+      "100/100 Lighthouse scores (Performance, Accessibility, SEO, Best Practices)",
+      "Dynamic blog powered by headless WordPress CMS, optimized for long-term SEO benefits",
     ],
-    technologies: "Next.js 14, TypeScript, Tailwind CSS, Shadcn UI, Server Components",
+    technologies:
+      "Next.js 14, TypeScript, Tailwind CSS, Shadcn UI, WordPress (Headless CMS), Server Components,Incremental Static Regeneration (ISR), Vercel",
     demo: "https://www.telanganaacservice.com",
   },
   {
