@@ -11,6 +11,19 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "Freelance Project - AC Service Website",
+    description:
+      "End-to-end development of a high-performance, SEO-optimized business website for a local AC service company, designed to enhance lead generation and local visibility.",
+    features: [
+      "Fully responsive design ensuring seamless experience across all devices",
+      "100/100 Lighthouse scores (Performance, Accessibility, SEO, Best Practices)",
+      "Dynamic blog powered by headless WordPress CMS, optimized for long-term SEO benefits",
+    ],
+    technologies:
+      "Next.js 14, TypeScript, Tailwind CSS, Shadcn UI, WordPress (Headless CMS), Server Components, Incremental Static Regeneration (ISR), Vercel",
+    demo: "https://www.telanganaacservice.com",
+  },
+  {
     title: "Jamaat-Time",
     description: "Web app for accurate prayer timings in nearby mosques while traveling.",
     features: [
@@ -21,6 +34,21 @@ const projects = [
     technologies: "Google Maps API, Google Places API",
     github: "https://github.com/f-z-coder/Jammat-Time",
     demo: "https://jamaat-time.netlify.app",
+  },
+  {
+    title: "Reactflow Overview",
+    description:
+      "A React Flow-based application to create, manage, and validate dynamic, interactive diagrams.",
+    features: [
+      "Add & connect nodes dynamically",
+      "Delete nodes & edges",
+      "Build visual pipelines",
+      "Auto-add handles for connections in 'text nodes' using patterns like {{name}}",
+      "Validate if the graph is a DAG (Directed Acyclic Graph) on submit",
+    ],
+    technologies: "React Flow, React, JavaScript, Tailwind CSS",
+    github: "https://github.com/f-z-coder/reactflow-overview",
+    demo: "https://reactflow-overview.netlify.app",
   },
   {
     title: "Image Processing App",
@@ -38,19 +66,6 @@ const projects = [
     technologies: "React, TypeScript, Node.js, Express, Sharp",
     github: "https://github.com/f-z-coder/image-processing-app",
     demo: "https://image-processing-app-frontend.netlify.app",
-  },
-  {
-    title: "Freelance Project - AC Service Website",
-    description:
-      "End-to-end development of a high-performance, SEO-optimized business website for a local AC service company, designed to enhance lead generation and local visibility.",
-    features: [
-      "Fully responsive design ensuring seamless experience across all devices",
-      "100/100 Lighthouse scores (Performance, Accessibility, SEO, Best Practices)",
-      "Dynamic blog powered by headless WordPress CMS, optimized for long-term SEO benefits",
-    ],
-    technologies:
-      "Next.js 14, TypeScript, Tailwind CSS, Shadcn UI, WordPress (Headless CMS), Server Components,Incremental Static Regeneration (ISR), Vercel",
-    demo: "https://www.telanganaacservice.com",
   },
   {
     title: "Minimalistic TypeScript Express MongoDB Template",
