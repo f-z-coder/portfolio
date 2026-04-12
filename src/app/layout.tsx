@@ -7,8 +7,7 @@ import { jsonLd } from "@/lib/schema-markup";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export { metadata } from "@/lib/metadata";
 
