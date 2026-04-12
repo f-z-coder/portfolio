@@ -1,19 +1,21 @@
 import Script from "next/script";
-import { Lora } from "next/font/google";
+import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { jsonLd } from "@/lib/schema-markup";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 export { metadata } from "@/lib/metadata";
 
-const lora = Lora({ subsets: ["latin"] });
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={lora.className}>
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <div className="flex min-h-screen flex-col p-4">
             <Header />
