@@ -46,7 +46,7 @@ export const Contact = () => {
                 {info.label}
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-grow flex-col justify-between">
+            <CardContent className="flex grow flex-col justify-between">
               <CardDescription className="text-lg">{info.value}</CardDescription>
               <Button asChild variant="outline" className="mt-4">
                 <Link href={info.href} target="_blank" rel="noopener noreferrer">

@@ -43,7 +43,7 @@ export const Skills = () => {
             <CardHeader>
               <CardTitle>{category}</CardTitle>
             </CardHeader>
-            <CardContent className="flex-grow">
+            <CardContent className="grow">
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <Badge key={skill} variant="secondary">

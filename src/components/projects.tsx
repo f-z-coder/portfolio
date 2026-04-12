@@ -111,7 +111,7 @@ export const Projects = () => {
               <CardTitle>{project.title}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow">
+            <CardContent className="grow">
               {project.features && (
                 <ul className="list-disc space-y-1 pl-5">
                   {project.features.map((feature, idx) => (

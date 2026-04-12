@@ -11,7 +11,7 @@ export const Hero = () => {
         Faiz Shaikh
       </h1>
       <p className="mt-4 text-xl text-muted-foreground sm:text-2xl">Full-Stack Web Developer</p>
-      <p className="mt-4 max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+      <p className="mt-4 max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
         I specialize in creating responsive, industry-standard web applications with a focus on
         elegant user experiences using Next.js, React.js, and TypeScript.
       </p>
