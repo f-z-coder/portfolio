@@ -60,7 +60,7 @@ export const Contact = () => {
       </div>
       <div className="mt-12 text-center">
         <h3 className="mb-4 text-2xl font-semibold">{"Let's Build Something Amazing Together"}</h3>
-        <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
+        <p className="text-muted-foreground mx-auto mb-8 max-w-2xl">
           {`I'm always open to discussing new projects, creative ideas, or opportunities to be part of
           your visions. Feel free to reach out through any of the channels above.`}
         </p>

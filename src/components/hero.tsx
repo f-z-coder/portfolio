@@ -10,8 +10,8 @@ export const Hero = () => {
       <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
         Faiz Shaikh
       </h1>
-      <p className="mt-4 text-xl text-muted-foreground sm:text-2xl">Full-Stack Web Developer</p>
-      <p className="mt-4 max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+      <p className="text-muted-foreground mt-4 text-xl sm:text-2xl">Full-Stack Web Developer</p>
+      <p className="text-muted-foreground mt-4 max-w-2xl leading-normal sm:text-xl sm:leading-8">
         I specialize in creating responsive, industry-standard web applications with a focus on
         elegant user experiences using Next.js, React.js, and TypeScript.
       </p>

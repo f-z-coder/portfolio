@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
 
@@ -115,6 +115,6 @@
     @apply border-border;
   }
   body {
-    @apply min-w-80 bg-background text-foreground;
+    @apply bg-background text-foreground min-w-80;
   }
 }

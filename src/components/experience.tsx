@@ -39,7 +39,7 @@ export const Experience = () => {
               <CardTitle>
                 {exp.title} at {exp.company}
               </CardTitle>
-              <p className="text-sm text-muted-foreground">{exp.period}</p>
+              <p className="text-muted-foreground text-sm">{exp.period}</p>
             </CardHeader>
             <CardContent>
               <ul className="list-disc space-y-2 pl-5">
