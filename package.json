@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json,html}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json,html}\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "class-variance-authority": "0.7.1",
@@ -23,6 +24,15 @@
     "sharp": "0.34.5",
     "tailwind-merge": "3.5.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss,md,json,html}": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.2",
     "@types/node": "25.6.0",
@@ -30,6 +40,8 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.3",
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0",
     "postcss": "8.5.9",
     "prettier": "3.8.2",
     "prettier-plugin-tailwindcss": "0.7.2",
