@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { BackButton } from "@/components/shared/back-button";
+import { ContentContainer } from "@/components/shared/content-container";
 import { TechBadge } from "@/components/shared/tech-badge";
 import { getAllExperiences, getExperienceBySlug } from "@/data/experience";
 import { ExperienceDetailContent } from "./content";
@@ -37,7 +38,7 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
   const allExperiences = getAllExperiences().filter((e) => e.slug !== slug);
 
   return (
-    <div className="container mx-auto max-w-3xl pt-24 pb-16">
+    <ContentContainer>
       <BackButton href="/#experience" label="Back to Experience" />
 
       <ExperienceDetailContent>
@@ -114,6 +115,6 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
           </>
         )}
       </ExperienceDetailContent>
-    </div>
+    </ContentContainer>
   );
 }

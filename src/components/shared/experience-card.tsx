@@ -62,13 +62,15 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
               </Badge>
             )}
           </div>
-          <Link
-            href={`/experience/${experience.slug}`}
-            className="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium transition-colors"
-          >
-            View Details
-            <ArrowRight className="ml-1 h-3.5 w-3.5" />
-          </Link>
+          <div className="border-border/50 flex items-center gap-2 border-t pt-3">
+            <Link
+              href={`/experience/${experience.slug}`}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+            >
+              View Details
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
         </CardContent>
       </Card>
     </motion.div>

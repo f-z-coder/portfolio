@@ -31,13 +31,6 @@ export function ContactSection() {
           </Button>
         </motion.div>
       </motion.div>
-
-      {/* Footer */}
-      <div className="border-border/50 mt-12 border-t pt-6 text-center">
-        <p className="text-muted-foreground text-xs">
-          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-        </p>
-      </div>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import Script from "next/script";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { jsonLd } from "@/lib/schema-markup";
+import { Sidebar } from "@/components/layout/sidebar";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +20,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           forcedTheme="dark"
           disableTransitionOnChange
         >
-          <div className="mx-auto max-w-screen-2xl">{children}</div>
+          <div className="mx-auto max-w-screen-2xl lg:flex">
+            <Sidebar />
+            <div className="flex min-h-screen min-w-0 flex-1 flex-col">
+              <div className="flex-1">{children}</div>
+              <footer className="mx-auto w-full max-w-4xl px-6 pb-6 text-right lg:px-10">
+                <p className="text-muted-foreground text-xs">
+                  &copy; {new Date().getFullYear()} Faiz Shaikh. All rights reserved.
+                </p>
+              </footer>
+            </div>
+          </div>
         </ThemeProvider>
         <Script
           id="jsonLdschema"

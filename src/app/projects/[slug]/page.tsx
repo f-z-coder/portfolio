@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BackButton } from "@/components/shared/back-button";
+import { ContentContainer } from "@/components/shared/content-container";
 import { TechBadge } from "@/components/shared/tech-badge";
 import { getAllProjects, getProjectBySlug } from "@/data/projects";
 import { ProjectDetailContent } from "./content";
@@ -32,7 +33,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <div className="container mx-auto max-w-3xl pt-24 pb-16">
+    <ContentContainer>
       <BackButton href="/#projects" label="Back to Projects" />
 
       <ProjectDetailContent>
@@ -48,8 +49,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {project.liveUrl && (
               <Button asChild>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  Live Demo
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <ExternalLink className="h-4 w-4" />
+                  View Live
                 </a>
               </Button>
             )}
@@ -89,6 +90,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </div>
         </div>
       </ProjectDetailContent>
-    </div>
+    </ContentContainer>
   );
 }

@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Layers, Database, Wrench } from "lucide-react";
+import { Code2, Layers, Database } from "lucide-react";
 import { skillCategories } from "@/data/skills";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2,
   Layers,
   Database,
-  Wrench,
 };
 
 export function SkillsSection() {
@@ -21,7 +20,7 @@ export function SkillsSection() {
         transition={{ duration: 0.4 }}
         className="mb-2 text-2xl font-bold tracking-tight"
       >
-        Skills & Tools
+        Skills
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 10 }}
