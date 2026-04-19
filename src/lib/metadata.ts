@@ -1,19 +1,23 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Faiz Shaikh - Full-Stack Web Developer",
+  title: "Faiz Shaikh - Full-Stack Developer",
   description:
-    "Portfolio of Faiz Shaikh, a Full-Stack Web Developer specializing in Next.js, React.js, and TypeScript. Explore my projects, skills, and experience.",
+    "Full-Stack Developer with 2+ years of experience building performant, scalable web applications and APIs using React, Go, TypeScript, Python, and Astro.",
   keywords: [
     "Faiz Shaikh",
+    "Full-Stack Developer",
     "Web Developer",
-    "Full-Stack Web Developer",
-    "Next.js",
     "React",
+    "Next.js",
     "TypeScript",
-    "JavaScript",
-    "Portfolio",
+    "Go",
+    "Python",
+    "Astro",
+    "Last9",
+    "Observability",
     "Software Engineer",
+    "Portfolio",
   ],
   authors: [{ name: "Faiz Shaikh" }],
   creator: "Faiz Shaikh",
@@ -24,23 +28,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.faiz-shaikh.in",
     siteName: "Faiz Shaikh Portfolio",
-    title: "Faiz Shaikh - Full-Stack Web Developer",
+    title: "Faiz Shaikh - Full-Stack Developer",
     description:
-      "Portfolio of Faiz Shaikh, a Full-Stack Web Developer specializing in Next.js, React.js, and TypeScript. Explore my projects, skills, and experience.",
+      "Full-Stack Developer with 2+ years of experience building performant, scalable web applications and APIs using React, Go, TypeScript, Python, and Astro.",
     images: [
       {
         url: "/faiz-shaikh.jpg",
         width: 1200,
         height: 630,
-        alt: "Faiz Shaikh - Full-Stack Web Developer",
+        alt: "Faiz Shaikh - Full-Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faiz Shaikh - Full-Stack Web Developer",
+    title: "Faiz Shaikh - Full-Stack Developer",
     description:
-      "Portfolio of Faiz Shaikh, a Full-Stack Web Developer specializing in Next.js, React.js, and TypeScript.",
+      "Full-Stack Developer building performant web apps with React, Go, TypeScript, Python, and Astro.",
     creator: "@fz_coder",
     images: ["/faiz-shaikh.jpg"],
   },
