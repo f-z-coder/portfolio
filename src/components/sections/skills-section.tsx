@@ -13,7 +13,7 @@ export const SkillsSection = () => (
 
     <StaggerGrid staggerDelay={STAGGER.small} className="grid gap-4 sm:grid-cols-2">
       {skillCategories.map(({ name, icon: Icon, skills }) => (
-        <StaggerItem key={name} yOffset={16} className="bg-card rounded-xl border p-5">
+        <StaggerItem key={name} className="bg-card rounded-xl border p-5">
           <div className="mb-3 flex items-center gap-2">
             <Icon className="text-primary h-4 w-4" />
             <h3 className="text-sm font-semibold">{name}</h3>

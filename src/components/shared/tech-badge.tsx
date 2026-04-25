@@ -8,7 +8,7 @@ interface TechBadgeProps {
 }
 
 export const TechBadge = ({ name, variant = "secondary", className }: TechBadgeProps) => (
-  <Badge variant={variant} className={cn("text-xs font-medium", className)}>
+  <Badge variant={variant} className={cn("rounded-md text-xs font-medium", className)}>
     {name}
   </Badge>
 );

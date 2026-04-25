@@ -14,7 +14,7 @@ interface ContactLinksProps {
 
 export const ContactLinks = ({ animate = false, itemClassName }: ContactLinksProps) => {
   const linkClass = cn(
-    "text-muted-foreground hover:text-foreground group flex w-full items-center gap-3 text-sm transition-colors",
+    "text-muted-foreground hover:text-foreground group flex w-full items-center gap-3 rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2",
     itemClassName
   );
 

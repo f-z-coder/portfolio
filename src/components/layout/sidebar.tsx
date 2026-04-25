@@ -42,9 +42,16 @@ export const Sidebar = () => {
 
         <motion.div variants={fadeUp}>
           <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</h1>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-2 flex flex-wrap items-center gap-2">
             <span className="bg-primary/10 text-primary -ml-2.5 rounded-full px-2.5 py-0.5 text-xs font-medium">
               {siteConfig.jobTitle}
+            </span>
+            <span className="text-muted-foreground inline-flex items-center gap-1.5 text-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+              </span>
+              Currently at {siteConfig.currentCompany.name}
             </span>
           </div>
         </motion.div>
@@ -53,10 +60,8 @@ export const Sidebar = () => {
           {siteConfig.bio}
         </motion.p>
 
-        <div className="flex-1" />
-
-        <motion.div variants={fadeUp} className="mt-8 space-y-4">
-          <div className="border-border/60 border-t" />
+        <motion.div variants={fadeUp} className="mt-auto space-y-4 pt-8">
+          <div className="border-border/50 border-t" />
 
           <div className="space-y-0.5">
             <ContactLinks itemClassName="rounded-lg py-1.5" />
@@ -64,7 +69,7 @@ export const Sidebar = () => {
 
           <Button size="sm" className="-ml-3 w-fit gap-3" asChild>
             <a href={siteConfig.resumePath} download>
-              <Download className="h-3.5 w-3.5" />
+              <Download className="h-4 w-4" />
               Download Resume
             </a>
           </Button>

@@ -5,6 +5,7 @@ import { ContentContainer } from "@/components/shared/content-container";
 import { ActionLink } from "@/components/shared/action-link";
 import { BulletList } from "@/components/shared/bullet-list";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
+import { DetailSection } from "@/components/shared/detail-section";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
 import { getAllProjects, getProjectBySlug } from "@/data/projects";
 import { siteConfig } from "@/data/site";
@@ -50,16 +51,14 @@ const ProjectDetailPage = async ({ params }: PageProps) => {
         </div>
 
         {project.features.length > 0 && (
-          <div className="mb-8">
-            <h2 className="mb-4 text-xl font-semibold">Features</h2>
+          <DetailSection title="Features">
             <BulletList items={project.features} />
-          </div>
+          </DetailSection>
         )}
 
-        <div className="mb-8">
-          <h2 className="mb-4 text-xl font-semibold">Tech Stack</h2>
-          <TechBadgeList technologies={project.technologies} className="gap-2" />
-        </div>
+        <DetailSection title="Tech Stack">
+          <TechBadgeList technologies={project.technologies} />
+        </DetailSection>
       </DetailPageContent>
     </ContentContainer>
   );

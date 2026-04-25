@@ -5,22 +5,22 @@ import { GraduationCap, Calendar, Award } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { education } from "@/data/education";
-import { EASE, VIEWPORT } from "@/lib/animations";
+import { DURATION, EASE, OFFSET, VIEWPORT } from "@/lib/animations";
 
 export const EducationSection = () => (
   <SectionWrapper id="education">
     <SectionHeading title="Education" subtitle="Where I studied" className="mb-10" />
 
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: OFFSET.sm }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT.item}
-      transition={{ duration: 0.45, ease: EASE }}
+      transition={{ duration: DURATION.normal, ease: EASE }}
       className="bg-card rounded-xl border p-6"
     >
       <div className="flex items-start gap-4">
-        <div className="bg-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
-          <GraduationCap className="text-primary h-5 w-5" />
+        <div className="bg-primary/10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">
+          <GraduationCap className="text-primary h-4 w-4" />
         </div>
         <div>
           <h3 className="font-semibold">{education.institution}</h3>

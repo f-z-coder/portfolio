@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ContactLinks } from "@/components/shared/contact-links";
-import { DURATION, EASE, VIEWPORT } from "@/lib/animations";
+import { DURATION, EASE, OFFSET, VIEWPORT } from "@/lib/animations";
 
 export const ContactSection = () => (
   <section id="contact" className="pb-10">
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: OFFSET.md }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT.item}
       transition={{ duration: DURATION.slow, ease: EASE }}
@@ -18,7 +18,7 @@ export const ContactSection = () => (
 
       <div className="relative flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex-1">
-          <p className="text-muted-foreground mb-4 text-[11px] font-semibold tracking-[0.2em] uppercase">
+          <p className="text-muted-foreground mb-4 text-xs font-semibold tracking-widest uppercase">
             Get in touch
           </p>
           <h2 className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl">

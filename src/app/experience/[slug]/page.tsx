@@ -6,6 +6,7 @@ import { BackButton } from "@/components/shared/back-button";
 import { BulletList } from "@/components/shared/bullet-list";
 import { ContentContainer } from "@/components/shared/content-container";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
+import { DetailSection } from "@/components/shared/detail-section";
 import { ExternalLink } from "@/components/shared/external-link";
 import { RelatedExperienceCard } from "@/components/shared/related-experience-card";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
@@ -42,7 +43,7 @@ const ExperienceDetailPage = async ({ params }: PageProps) => {
       <DetailPageContent>
         <div className="mb-8">
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            {experience.isCurrent && <Badge variant="default">Current Role</Badge>}
+            {experience.isCurrent && <Badge variant="default">Current</Badge>}
             <Badge variant="outline">{experience.period}</Badge>
           </div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{experience.title}</h1>
@@ -56,27 +57,24 @@ const ExperienceDetailPage = async ({ params }: PageProps) => {
           </p>
         </div>
 
-        <div className="mb-8">
-          <h2 className="mb-4 text-xl font-semibold">What I Did</h2>
+        <DetailSection title="What I Did">
           <BulletList items={experience.responsibilities} />
-        </div>
+        </DetailSection>
 
-        <div className="mb-8">
-          <h2 className="mb-4 text-xl font-semibold">Tech Stack</h2>
-          <TechBadgeList technologies={experience.technologies} className="gap-2" />
-        </div>
+        <DetailSection title="Tech Stack">
+          <TechBadgeList technologies={experience.technologies} />
+        </DetailSection>
 
         {others.length > 0 && (
           <>
             <Separator className="my-8" />
-            <div>
-              <h2 className="mb-4 text-xl font-semibold">Other Experience</h2>
+            <DetailSection title="Other Experience" className="mb-0">
               <div className="grid gap-3 sm:grid-cols-2">
                 {others.map((exp) => (
                   <RelatedExperienceCard key={exp.slug} experience={exp} />
                 ))}
               </div>
-            </div>
+            </DetailSection>
           </>
         )}
       </DetailPageContent>

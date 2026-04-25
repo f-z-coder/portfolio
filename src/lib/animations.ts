@@ -23,13 +23,20 @@ export const STAGGER = {
   loose: 0.2,
 } as const;
 
+export const OFFSET = {
+  xs: 10,
+  sm: 16,
+  md: 20,
+  lg: 30,
+} as const;
+
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: OFFSET.xs },
   visible: { opacity: 1, y: 0, transition: { duration: DURATION.fast, ease: EASE } },
 };
 
 export const fadeUpItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: OFFSET.md },
   visible: { opacity: 1, y: 0, transition: { duration: DURATION.fast, ease: EASE } },
 };
 

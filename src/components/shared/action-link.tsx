@@ -17,7 +17,7 @@ const VARIANT_STYLES = {
 } as const;
 
 const BASE_STYLES =
-  "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors";
+  "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2";
 
 export const ActionLink = ({
   href,

@@ -25,7 +25,7 @@ export const ProjectsSection = () => (
 
     <StaggerGrid className="grid gap-4 sm:grid-cols-2">
       {featured.map((project) => (
-        <StaggerItem key={project.slug} duration={0.45}>
+        <StaggerItem key={project.slug}>
           <ProjectCard project={project} />
         </StaggerItem>
       ))}
