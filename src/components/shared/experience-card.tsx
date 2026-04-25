@@ -32,21 +32,17 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
         }
       >
         <CardHeader className="pb-3">
-          <div className="flex items-start justify-between gap-2">
-            <div>
+          <div>
+            <div className="flex items-start justify-between gap-2">
               <CardTitle className="text-lg">{experience.company}</CardTitle>
-              <p className="text-muted-foreground text-sm">{experience.title}</p>
-            </div>
-            <div className="flex shrink-0 items-center gap-2">
               {experience.isCurrent && (
-                <Badge variant="default" className="text-xs">
+                <Badge variant="default" className="mt-1 shrink-0 text-xs">
                   Current
                 </Badge>
               )}
-              <Badge variant="outline" className="text-xs whitespace-nowrap">
-                {experience.period}
-              </Badge>
             </div>
+            <p className="text-muted-foreground text-sm">{experience.title}</p>
+            <p className="text-muted-foreground mt-1 text-xs">{experience.period}</p>
           </div>
         </CardHeader>
         <CardContent>

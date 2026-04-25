@@ -124,7 +124,7 @@
     @apply scroll-smooth font-sans;
   }
   body {
-    @apply text-foreground min-w-80;
+    @apply text-foreground min-w-100;
     background-color: var(--background);
   }
 

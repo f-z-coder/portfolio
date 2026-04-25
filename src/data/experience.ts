@@ -27,8 +27,6 @@ const experiences: Experience[] = [
       "Tailwind CSS",
       "Stripe API",
       "Starlight",
-      "PromQL",
-      "LogQL",
     ],
   },
   {

@@ -12,7 +12,7 @@ export function BackButton({ href, label = "Back to Home" }: BackButtonProps) {
     <Button
       variant="ghost"
       asChild
-      className="text-muted-foreground hover:text-foreground mb-8 -ml-2"
+      className="text-muted-foreground hover:text-foreground mb-8 -ml-3"
     >
       <Link href={href}>
         <ArrowLeft className="mr-2 h-4 w-4" />

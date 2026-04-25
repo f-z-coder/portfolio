@@ -1,35 +1,46 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { contactInfo } from "@/data/contact";
+import { ContactLinks } from "@/components/shared/contact-links";
 
 export function ContactSection() {
   return (
     <section id="contact" className="pb-10">
-      {/* CTA */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const }}
-        className="bg-card rounded-2xl border p-8 text-center"
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+        className="bg-card relative overflow-hidden rounded-2xl border p-8 sm:p-10"
       >
-        <h2 className="text-2xl font-bold tracking-tight">Let&apos;s work together</h2>
-        <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm leading-relaxed">
-          Have an interesting project or opportunity? I&apos;m always open to discussing new ideas
-          and collaborations.
-        </p>
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-6">
-          <Button size="lg" className="gap-2 rounded-xl px-8 shadow-md" asChild>
-            <Link href={contactInfo.find((c) => c.icon === "Mail")!.href}>
-              <Mail className="h-4 w-4" />
-              Send me an email
-            </Link>
-          </Button>
-        </motion.div>
+        {/* Rose glow */}
+        <div className="bg-primary/10 pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full blur-3xl" />
+        <div className="bg-primary/5 pointer-events-none absolute -bottom-12 -left-12 h-48 w-48 rounded-full blur-2xl" />
+
+        <div className="relative flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+          {/* Left — heading */}
+          <div className="flex-1">
+            <p className="text-muted-foreground mb-4 text-[11px] font-semibold tracking-[0.2em] uppercase">
+              Get in touch
+            </p>
+            <h2 className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl">
+              Let&apos;s work
+              <br />
+              <span className="text-primary">together.</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-xs text-sm leading-relaxed">
+              Open to new opportunities, freelance projects, and interesting conversations.
+            </p>
+          </div>
+
+          {/* Divider — horizontal on mobile, vertical on sm+ */}
+          <div className="border-border/50 border-t sm:self-stretch sm:border-t-0 sm:border-l" />
+
+          {/* Right — all contact links */}
+          <div className="flex flex-col justify-center gap-4 sm:min-w-[160px]">
+            <ContactLinks animate />
+          </div>
+        </div>
       </motion.div>
     </section>
   );

@@ -31,7 +31,7 @@ export function ExperienceSection() {
       <div className="relative">
         {/* Timeline line */}
         <motion.div
-          className="bg-border absolute top-0 bottom-0 left-0 w-0.5 md:left-1/2 md:-translate-x-px"
+          className="bg-border absolute top-5 bottom-0 left-0 hidden w-0.5 md:left-1/2 md:block md:-translate-x-px"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -50,7 +50,7 @@ export function ExperienceSection() {
             <div key={exp.slug} className="relative flex items-start md:justify-center">
               {/* Timeline dot */}
               <motion.div
-                className={`absolute left-0 z-10 h-3 w-3 rounded-full md:left-1/2 md:-translate-x-1.5 ${
+                className={`absolute top-5 left-0 z-10 hidden h-3 w-3 rounded-full md:left-1/2 md:block md:-translate-x-1.5 ${
                   exp.isCurrent ? "bg-primary" : "bg-muted-foreground/40"
                 }`}
                 variants={{
@@ -64,7 +64,7 @@ export function ExperienceSection() {
 
               {/* Card wrapper with alternating sides */}
               <div
-                className={`ml-8 w-full md:ml-0 md:w-[calc(50%-2rem)] ${
+                className={`w-full md:w-[calc(50%-2rem)] ${
                   index % 2 === 0 ? "md:mr-auto md:pr-4" : "md:ml-auto md:pl-4"
                 }`}
               >

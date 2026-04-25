@@ -2,28 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Download, Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/site";
-import { contactInfo } from "@/data/contact";
-
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Mail,
-  Phone,
-  Github,
-  Linkedin,
-  X: XIcon,
-};
-
-const externalIcons = new Set(["Github", "Linkedin", "X"]);
+import { ContactLinks } from "@/components/shared/contact-links";
 
 const container = {
   hidden: {},
@@ -41,13 +23,12 @@ const fadeUp = {
 
 export function Sidebar() {
   return (
-    <aside className="bg-sidebar border-sidebar-border relative flex flex-col px-6 py-8 lg:sticky lg:top-0 lg:h-screen lg:w-96 lg:shrink-0 lg:overflow-y-auto lg:border-r lg:px-10 lg:py-12 lg:shadow-[4px_0_24px_rgba(0,0,0,0.35)]">
-      <div className="from-sidebar pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-r to-transparent" />
+    <aside className="bg-sidebar border-sidebar-border flex flex-col lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:shrink-0 lg:overflow-y-auto lg:border-r lg:shadow-[4px_0_24px_rgba(0,0,0,0.35)] xl:w-96">
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="flex h-full flex-col"
+        className="mx-auto flex h-full w-full max-w-4xl flex-col px-6 py-8 lg:mx-0 lg:max-w-none lg:px-10 lg:py-12"
       >
         {/* Photo with gradient blob */}
         <motion.div variants={fadeUp} className="relative mb-5 w-fit">
@@ -67,7 +48,7 @@ export function Sidebar() {
         <motion.div variants={fadeUp}>
           <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</h1>
           <div className="mt-2 flex items-center gap-2">
-            <span className="bg-primary/10 text-primary rounded-full px-2.5 py-0.5 text-xs font-medium">
+            <span className="bg-primary/10 text-primary -ml-2.5 rounded-full px-2.5 py-0.5 text-xs font-medium">
               Full-Stack Developer
             </span>
           </div>
@@ -87,28 +68,11 @@ export function Sidebar() {
           <div className="border-border/60 border-t" />
 
           <div className="space-y-0.5">
-            {contactInfo.map(({ icon, label, value, href }) => {
-              const Icon = iconMap[icon];
-              const isExternal = externalIcons.has(icon);
-              return (
-                <a
-                  key={label}
-                  href={href}
-                  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-muted-foreground hover:text-foreground group flex items-center gap-3 rounded-lg py-1.5 text-sm transition-colors"
-                >
-                  {Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
-                  <span className="flex-1 truncate text-xs">{value}</span>
-                  {isExternal && (
-                    <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-60" />
-                  )}
-                </a>
-              );
-            })}
+            <ContactLinks itemClassName="rounded-lg py-1.5" />
           </div>
 
           {/* Resume CTA */}
-          <Button size="sm" className="w-full gap-2" asChild>
+          <Button size="sm" className="-ml-3 w-fit gap-3" asChild>
             <a href={siteConfig.resumePath} download="Faiz_Shaikh_Resume.pdf">
               <Download className="h-3.5 w-3.5" />
               Download Resume
