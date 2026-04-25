@@ -7,7 +7,6 @@ interface TechBadgeListProps {
   max?: number;
   className?: string;
   badgeClassName?: string;
-  overflowSuffix?: string;
 }
 
 export const TechBadgeList = ({
@@ -15,7 +14,6 @@ export const TechBadgeList = ({
   max,
   className,
   badgeClassName,
-  overflowSuffix = "",
 }: TechBadgeListProps) => {
   const visible = max ? technologies.slice(0, max) : technologies;
   const overflow = max ? technologies.length - max : 0;
@@ -28,7 +26,6 @@ export const TechBadgeList = ({
       {overflow > 0 && (
         <Badge variant="outline" className={cn("text-xs", badgeClassName)}>
           +{overflow}
-          {overflowSuffix && ` ${overflowSuffix}`}
         </Badge>
       )}
     </div>

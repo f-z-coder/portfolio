@@ -51,7 +51,6 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => (
         <TechBadgeList
           technologies={experience.technologies}
           max={MAX_TECH_BADGES}
-          overflowSuffix="more"
           className="mb-4"
         />
         <CardActions>
