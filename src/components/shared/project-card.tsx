@@ -1,17 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ActionLink } from "./action-link";
+import { TechBadgeList } from "./tech-badge-list";
+import { CardActions } from "./card-actions";
 import type { Project } from "@/data/types";
+
+const MAX_TECH_BADGES = 4;
 
 interface ProjectCardProps {
   project: Project;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+const stopPropagation = (e: React.MouseEvent) => e.preventDefault();
+
+export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const hasLinks = Boolean(project.liveUrl || project.githubUrl);
+
   return (
     <Link href={`/projects/${project.slug}`} className="group block h-full">
       <Card className="flex h-full flex-col transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
@@ -28,35 +33,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col justify-between gap-4">
-          <div className="flex flex-wrap gap-1.5">
-            {project.technologies.slice(0, 4).map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-[11px]">
-                {tech}
-              </Badge>
-            ))}
-            {project.technologies.length > 4 && (
-              <Badge variant="outline" className="text-[11px]">
-                +{project.technologies.length - 4}
-              </Badge>
-            )}
-          </div>
+          <TechBadgeList technologies={project.technologies} max={MAX_TECH_BADGES} />
 
-          {(project.liveUrl || project.githubUrl) && (
-            <div className="border-border/50 flex items-center gap-2 border-t pt-3">
+          {hasLinks && (
+            <CardActions>
               {project.liveUrl && (
-                <span onClick={(e) => e.preventDefault()}>
+                <span onClick={stopPropagation}>
                   <ActionLink href={project.liveUrl} label="View Live" external />
                 </span>
               )}
               {project.githubUrl && (
-                <span onClick={(e) => e.preventDefault()}>
+                <span onClick={stopPropagation}>
                   <ActionLink href={project.githubUrl} label="GitHub" external variant="outline" />
                 </span>
               )}
-            </div>
+            </CardActions>
           )}
         </CardContent>
       </Card>
     </Link>
   );
-}
+};

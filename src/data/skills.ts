@@ -1,9 +1,10 @@
+import { Code2, Layers, Database } from "lucide-react";
 import type { SkillCategory } from "./types";
 
 export const skillCategories: SkillCategory[] = [
   {
     name: "Languages",
-    icon: "Code2",
+    icon: Code2,
     skills: [
       { name: "TypeScript", isPrimary: true },
       { name: "JavaScript", isPrimary: true },
@@ -15,7 +16,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Frontend",
-    icon: "Layers",
+    icon: Layers,
     skills: [
       { name: "React", isPrimary: true },
       { name: "Next.js", isPrimary: true },
@@ -24,7 +25,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Backend",
-    icon: "Database",
+    icon: Database,
     skills: [
       { name: "Node.js", isPrimary: true },
       { name: "Express", isPrimary: true },

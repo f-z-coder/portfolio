@@ -1,21 +1,19 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useSyncExternalStore } from "react";
 
-function useIsMounted() {
-  return useSyncExternalStore(
-    () => {
-      return () => {};
-    },
+const noopSubscribe = () => () => {};
+const useIsMounted = () =>
+  useSyncExternalStore(
+    noopSubscribe,
     () => true,
     () => false
   );
-}
 
-export function ThemeToggle() {
+export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   const mounted = useIsMounted();
 
@@ -38,4 +36,4 @@ export function ThemeToggle() {
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
-}
+};

@@ -1,34 +1,37 @@
-import type { ContactInfo } from "./types";
+import { Phone } from "lucide-react";
+import { GmailIcon, LinkedInIcon, XIcon, GitHubIcon } from "@/components/icons/brand-icons";
+import type { ContactItem } from "./types";
+import { siteConfig } from "./site";
 
-export const contactInfo: ContactInfo[] = [
+export const contactInfo: ContactItem[] = [
   {
-    icon: "Mail",
+    icon: GmailIcon,
     label: "Email",
     value: "faizshaikh72740@gmail.com",
     href: "mailto:faizshaikh72740@gmail.com",
   },
   {
-    icon: "Phone",
+    icon: Phone,
     label: "Phone",
     value: "+91 9112677274",
     href: "tel:+919112677274",
   },
   {
-    icon: "Github",
+    icon: GitHubIcon,
     label: "GitHub",
     value: "f-z-coder",
-    href: "https://github.com/f-z-coder",
+    href: siteConfig.social.github,
   },
   {
-    icon: "Linkedin",
+    icon: LinkedInIcon,
     label: "LinkedIn",
     value: "f-z-coder",
-    href: "https://www.linkedin.com/in/f-z-coder/",
+    href: siteConfig.social.linkedin,
   },
   {
-    icon: "X",
+    icon: XIcon,
     label: "X",
-    value: "@fz_coder",
-    href: "https://x.com/fz_coder",
+    value: siteConfig.social.twitterHandle,
+    href: siteConfig.social.twitter,
   },
 ];

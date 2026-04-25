@@ -7,10 +7,8 @@ interface TechBadgeProps {
   className?: string;
 }
 
-export function TechBadge({ name, variant = "secondary", className }: TechBadgeProps) {
-  return (
-    <Badge variant={variant} className={cn("text-xs font-medium", className)}>
-      {name}
-    </Badge>
-  );
-}
+export const TechBadge = ({ name, variant = "secondary", className }: TechBadgeProps) => (
+  <Badge variant={variant} className={cn("text-xs font-medium", className)}>
+    {name}
+  </Badge>
+);

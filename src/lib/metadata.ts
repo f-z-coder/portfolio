@@ -1,9 +1,9 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Faiz Shaikh - Full-Stack Developer",
-  description:
-    "Full-Stack Developer with 2+ years of experience building performant, scalable web applications and APIs using React, Go, TypeScript, Python, and Astro.",
+  title: siteConfig.title,
+  description: siteConfig.description,
   keywords: [
     "Faiz Shaikh",
     "Full-Stack Developer",
@@ -19,34 +19,32 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Portfolio",
   ],
-  authors: [{ name: "Faiz Shaikh" }],
-  creator: "Faiz Shaikh",
-  publisher: "Faiz Shaikh",
-  metadataBase: new URL("https://www.faiz-shaikh.in"),
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.faiz-shaikh.in",
-    siteName: "Faiz Shaikh Portfolio",
-    title: "Faiz Shaikh - Full-Stack Developer",
-    description:
-      "Full-Stack Developer with 2+ years of experience building performant, scalable web applications and APIs using React, Go, TypeScript, Python, and Astro.",
+    url: siteConfig.url,
+    siteName: `${siteConfig.name} Portfolio`,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
-        url: "/faiz-shaikh.jpg",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Faiz Shaikh - Full-Stack Developer",
+        alt: siteConfig.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faiz Shaikh - Full-Stack Developer",
-    description:
-      "Full-Stack Developer building performant web apps with React, Go, TypeScript, Python, and Astro.",
-    creator: "@fz_coder",
-    images: ["/faiz-shaikh.jpg"],
+    title: siteConfig.title,
+    description: `Full-Stack Developer building performant web apps with React, Go, TypeScript, Python, and Astro.`,
+    creator: siteConfig.social.twitterHandle,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -61,27 +59,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      {
-        url: "/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        url: "/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [
-      {
-        url: "/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://www.faiz-shaikh.in",
+    canonical: siteConfig.url,
   },
 };

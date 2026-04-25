@@ -74,10 +74,7 @@ const experiences: Experience[] = [
   },
 ];
 
-export function getAllExperiences(): Experience[] {
-  return experiences;
-}
+export const getAllExperiences = (): Experience[] => experiences;
 
-export function getExperienceBySlug(slug: string): Experience | undefined {
-  return experiences.find((exp) => exp.slug === slug);
-}
+export const getExperienceBySlug = (slug: string): Experience | undefined =>
+  experiences.find((exp) => exp.slug === slug);

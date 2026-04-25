@@ -4,22 +4,26 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BackButton } from "@/components/shared/back-button";
-import { ProjectCard } from "@/components/shared/project-card";
-import { getAllProjects, getProjectCategories, categoryLabels } from "@/data/projects";
 import { ContentContainer } from "@/components/shared/content-container";
-import type { Project } from "@/data/types";
+import { ProjectCard } from "@/components/shared/project-card";
+import { categoryLabels, getAllProjects, getProjectCategories } from "@/data/projects";
+import { cn } from "@/lib/utils";
+import type { ProjectCategory } from "@/data/types";
 
 const allProjects = getAllProjects();
 const categories = getProjectCategories();
+type CategoryKey = (typeof categories)[number];
 
-function ProjectsContent() {
+const ProjectsContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const filter = searchParams.get("category") ?? "all";
+  const filter = (searchParams.get("category") ?? "all") as CategoryKey;
   const filtered =
-    filter === "all" ? allProjects : allProjects.filter((p) => p.category === filter);
+    filter === "all"
+      ? allProjects
+      : allProjects.filter((p) => p.category === (filter as ProjectCategory));
 
-  function selectCategory(cat: string) {
+  const selectCategory = (cat: CategoryKey) => {
     const params = new URLSearchParams(searchParams.toString());
     if (cat === "all") {
       params.delete("category");
@@ -27,7 +31,7 @@ function ProjectsContent() {
       params.set("category", cat);
     }
     router.replace(`/projects?${params.toString()}`, { scroll: false });
-  }
+  };
 
   return (
     <ContentContainer>
@@ -38,27 +42,26 @@ function ProjectsContent() {
         Everything I&apos;ve built — {allProjects.length} projects and counting.
       </p>
 
-      {/* Filter tabs */}
       <div className="bg-muted/50 mb-8 inline-flex gap-1 rounded-lg p-1">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => selectCategory(cat)}
-            className={`cursor-pointer rounded-md px-3 py-1.5 text-sm transition-all ${
+            className={cn(
+              "cursor-pointer rounded-md px-3 py-1.5 text-sm transition-all",
               filter === cat
                 ? "bg-background text-foreground font-medium shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
-            }`}
+            )}
           >
             {categoryLabels[cat]}
           </button>
         ))}
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <AnimatePresence mode="popLayout">
-          {filtered.map((project: Project) => (
+          {filtered.map((project) => (
             <motion.div
               key={project.slug}
               layout
@@ -74,12 +77,12 @@ function ProjectsContent() {
       </div>
     </ContentContainer>
   );
-}
+};
 
-export default function ProjectsPage() {
-  return (
-    <Suspense>
-      <ProjectsContent />
-    </Suspense>
-  );
-}
+const ProjectsPage = () => (
+  <Suspense>
+    <ProjectsContent />
+  </Suspense>
+);
+
+export default ProjectsPage;

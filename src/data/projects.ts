@@ -238,17 +238,12 @@ const projects: Project[] = [
   },
 ];
 
-export function getAllProjects(): Project[] {
-  return projects;
-}
+export const getAllProjects = (): Project[] => projects;
 
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.isFeatured);
-}
+export const getFeaturedProjects = (): Project[] => projects.filter((p) => p.isFeatured);
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
-}
+export const getProjectBySlug = (slug: string): Project | undefined =>
+  projects.find((p) => p.slug === slug);
 
 export const categoryLabels: Record<ProjectCategory | "all", string> = {
   all: "All",
@@ -257,6 +252,7 @@ export const categoryLabels: Record<ProjectCategory | "all", string> = {
   backend: "Backend",
 };
 
-export function getProjectCategories(): string[] {
-  return ["all", ...Array.from(new Set(projects.map((p) => p.category)))];
-}
+export const getProjectCategories = (): (ProjectCategory | "all")[] => [
+  "all",
+  ...Array.from(new Set(projects.map((p) => p.category))),
+];

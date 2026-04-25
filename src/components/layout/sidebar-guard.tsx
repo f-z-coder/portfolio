@@ -3,9 +3,8 @@
 import { usePathname } from "next/navigation";
 import { Sidebar } from "./sidebar";
 
-export function SidebarGuard() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+export const SidebarGuard = () => {
+  const isHome = usePathname() === "/";
   return isHome ? (
     <Sidebar />
   ) : (
@@ -13,4 +12,4 @@ export function SidebarGuard() {
       <Sidebar />
     </div>
   );
-}
+};

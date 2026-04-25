@@ -1,3 +1,7 @@
+import type { ComponentType, SVGProps } from "react";
+
+export type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { className?: string }>;
+
 export interface Experience {
   slug: string;
   title: string;
@@ -25,14 +29,19 @@ export interface Project {
   technologies: string[];
 }
 
-export interface SkillCategory {
+export interface Skill {
   name: string;
-  icon: string;
-  skills: { name: string; isPrimary: boolean }[];
+  isPrimary: boolean;
 }
 
-export interface ContactInfo {
-  icon: string;
+export interface SkillCategory {
+  name: string;
+  icon: IconComponent;
+  skills: Skill[];
+}
+
+export interface ContactItem {
+  icon: IconComponent;
   label: string;
   value: string;
   href: string;
@@ -45,10 +54,28 @@ export interface Education {
   gpa: string;
 }
 
+export interface SocialLinks {
+  github: string;
+  linkedin: string;
+  twitter: string;
+  twitterHandle: string;
+}
+
+export interface CompanyRef {
+  name: string;
+  url: string;
+}
+
 export interface SiteConfig {
   name: string;
+  jobTitle: string;
   title: string;
   description: string;
+  bio: string;
   url: string;
+  ogImage: string;
   resumePath: string;
+  resumeFileName: string;
+  social: SocialLinks;
+  currentCompany: CompanyRef;
 }
