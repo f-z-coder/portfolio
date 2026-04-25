@@ -1,15 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { BackButton } from "@/components/shared/back-button";
 import { BulletList } from "@/components/shared/bullet-list";
 import { ContentContainer } from "@/components/shared/content-container";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
 import { ExternalLink } from "@/components/shared/external-link";
+import { RelatedExperienceCard } from "@/components/shared/related-experience-card";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
 import { getAllExperiences, getExperienceBySlug } from "@/data/experience";
 import { siteConfig } from "@/data/site";
@@ -70,19 +68,7 @@ const ExperienceDetailPage = async ({ params }: PageProps) => {
               <h2 className="mb-4 text-xl font-semibold">Other Experience</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {others.map((exp) => (
-                  <Link key={exp.slug} href={`/experience/${exp.slug}`}>
-                    <Card className="hover:ring-primary/30 transition-all hover:ring-1">
-                      <CardHeader className="p-4 pb-1">
-                        <CardTitle className="flex items-center justify-between text-base">
-                          {exp.company}
-                          <ArrowRight className="h-4 w-4" />
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-4 pt-1">
-                        <p className="text-muted-foreground text-sm">{exp.title}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                  <RelatedExperienceCard key={exp.slug} experience={exp} />
                 ))}
               </div>
             </div>
