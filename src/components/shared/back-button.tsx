@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 
 interface BackButtonProps {
   href: string;
-  label?: string;
+  label: string;
 }
 
-export const BackButton = ({ href, label = "Back to Home" }: BackButtonProps) => (
+export const BackButton = ({ href, label }: BackButtonProps) => (
   <Button
     variant="ghost"
     asChild

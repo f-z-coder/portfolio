@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ContactLinkContent } from "@/components/shared/contact-link-content";
+import { ExternalLink } from "@/components/shared/external-link";
 import { contactInfo } from "@/data/contact";
 import { EASE, DURATION } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -19,15 +20,7 @@ export const ContactLinks = ({ animate = false, itemClassName }: ContactLinksPro
 
   return (
     <>
-      {contactInfo.map(({ icon: Icon, label, value, href }, i) => {
-        const content = (
-          <>
-            <Icon className="h-3.5 w-3.5 shrink-0" />
-            <span className="flex-1 truncate">{value}</span>
-            <ArrowUpRight className="ml-auto h-3 w-3 opacity-0 transition-opacity group-hover:opacity-60" />
-          </>
-        );
-
+      {contactInfo.map(({ icon, label, value, href }, i) => {
         if (animate) {
           return (
             <motion.a
@@ -41,21 +34,15 @@ export const ContactLinks = ({ animate = false, itemClassName }: ContactLinksPro
               viewport={{ once: true }}
               transition={{ duration: DURATION.fast, delay: i * 0.07, ease: EASE }}
             >
-              {content}
+              <ContactLinkContent icon={icon} value={value} />
             </motion.a>
           );
         }
 
         return (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={linkClass}
-          >
-            {content}
-          </a>
+          <ExternalLink key={label} href={href} className={linkClass}>
+            <ContactLinkContent icon={icon} value={value} />
+          </ExternalLink>
         );
       })}
     </>
