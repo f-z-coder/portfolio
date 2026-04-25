@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BackButton } from "@/components/shared/back-button";
 import { ContentContainer } from "@/components/shared/content-container";
-import { ActionLink } from "@/components/shared/action-link";
+import { ProjectLinks } from "@/components/shared/project-links";
 import { BulletList } from "@/components/shared/bullet-list";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
 import { DetailSection } from "@/components/shared/detail-section";
@@ -42,12 +42,7 @@ const ProjectDetailPage = async ({ params }: PageProps) => {
             {project.longDescription || project.description}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.liveUrl && <ActionLink href={project.liveUrl} label="View Live" external />}
-            {project.githubUrl && (
-              <ActionLink href={project.githubUrl} label="GitHub" external variant="outline" />
-            )}
-          </div>
+          <ProjectLinks liveUrl={project.liveUrl} githubUrl={project.githubUrl} className="mt-6" />
         </div>
 
         {project.features.length > 0 && (

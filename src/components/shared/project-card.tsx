@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ActionLink } from "@/components/shared/action-link";
+import { ProjectLinks } from "@/components/shared/project-links";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
-import { CardActions } from "@/components/shared/card-actions";
 import type { Project } from "@/data/types";
 
 const MAX_TECH_BADGES = 4;
@@ -13,8 +12,6 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const hasLinks = Boolean(project.liveUrl || project.githubUrl);
-
   return (
     <Card className="group hover:ring-primary/30 relative flex h-full flex-col transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:ring-1">
       <Link
@@ -38,14 +35,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       <CardContent className="flex flex-1 flex-col justify-between gap-4">
         <TechBadgeList technologies={project.technologies} max={MAX_TECH_BADGES} />
 
-        {hasLinks && (
-          <CardActions className="relative z-20">
-            {project.liveUrl && <ActionLink href={project.liveUrl} label="View Live" external />}
-            {project.githubUrl && (
-              <ActionLink href={project.githubUrl} label="GitHub" external variant="outline" />
-            )}
-          </CardActions>
-        )}
+        <ProjectLinks
+          liveUrl={project.liveUrl}
+          githubUrl={project.githubUrl}
+          className="border-border/50 relative z-20 border-t pt-3"
+        />
       </CardContent>
     </Card>
   );
