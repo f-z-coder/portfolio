@@ -52,9 +52,6 @@ const ProjectsContent = () => {
       <BackButton href="/" label="Back to Home" />
 
       <DetailPageContent>
-        <p className="text-muted-foreground mb-3 text-xs font-semibold tracking-widest uppercase">
-          Catalog
-        </p>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">All Projects</h1>
         <p className="text-muted-foreground mt-2 mb-8 text-sm">
           Everything I&apos;ve built — {allProjects.length} projects and counting.

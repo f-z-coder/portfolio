@@ -1,7 +1,5 @@
 # Portfolio Design Audit — Agent Prompt
 
-Hand this prompt to another agent (with read access to the repo) when you want a fresh design-consistency review. The agent should produce a written report only — **no edits**.
-
 ---
 
 You are acting as a senior product designer + frontend QA engineer. Audit a Next.js 16 + Tailwind 4 + Framer Motion portfolio at `C:\Users\faizs\Desktop\portfolio` for design inconsistencies, visual bugs, and UX gaps. Do **NOT** make any edits — produce a written report only.
@@ -127,21 +125,27 @@ Markdown report with this skeleton:
 # Portfolio Design Audit
 
 ## Executive summary
+
 (top 5 fixes by impact)
 
 ## Critical
+
 - [path:line] description — current → fix
 
 ## High
+
 ...
 
 ## Medium
+
 ...
 
 ## Low
+
 ...
 
 ## Verified-good (intentional design choices that look unusual but are correct)
+
 - ...
 ```
 
