@@ -42,16 +42,9 @@ export const Sidebar = () => {
 
         <motion.div variants={fadeUp}>
           <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-2">
+          <div className="mt-2 flex items-center gap-2">
             <span className="bg-primary/10 text-primary -ml-2.5 rounded-full px-2.5 py-0.5 text-xs font-medium">
               {siteConfig.jobTitle}
-            </span>
-            <span className="text-muted-foreground inline-flex items-center gap-1.5 text-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-              </span>
-              Currently at {siteConfig.currentCompany.name}
             </span>
           </div>
         </motion.div>
