@@ -11,7 +11,12 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 export { metadata } from "@/lib/metadata";
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
-  <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+  <html
+    lang="en"
+    suppressHydrationWarning
+    data-scroll-behavior="smooth"
+    className={cn("font-sans", geist.variable)}
+  >
     <head>
       <script
         type="application/ld+json"
