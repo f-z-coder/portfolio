@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TechBadge } from "./tech-badge";
+import { ActionLink } from "./action-link";
 import type { Experience } from "@/data/types";
 
 interface ExperienceCardProps {
@@ -63,13 +62,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
             )}
           </div>
           <div className="border-border/50 flex items-center gap-2 border-t pt-3">
-            <Link
-              href={`/experience/${experience.slug}`}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-            >
-              View Details
-              <ArrowRight className="h-3 w-3" />
-            </Link>
+            <ActionLink href={`/experience/${experience.slug}`} label="View Details" />
           </div>
         </CardContent>
       </Card>

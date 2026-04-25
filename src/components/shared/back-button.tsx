@@ -9,7 +9,11 @@ interface BackButtonProps {
 
 export function BackButton({ href, label = "Back to Home" }: BackButtonProps) {
   return (
-    <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground mb-8">
+    <Button
+      variant="ghost"
+      asChild
+      className="text-muted-foreground hover:text-foreground mb-8 -ml-2"
+    >
       <Link href={href}>
         <ArrowLeft className="mr-2 h-4 w-4" />
         {label}

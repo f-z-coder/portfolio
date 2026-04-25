@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { BackButton } from "@/components/shared/back-button";
 import { ContentContainer } from "@/components/shared/content-container";
 import { TechBadge } from "@/components/shared/tech-badge";
+import { ActionLink } from "@/components/shared/action-link";
 import { getAllExperiences, getExperienceBySlug } from "@/data/experience";
 import { ExperienceDetailContent } from "./content";
 
@@ -50,18 +51,14 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
           </div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{experience.title}</h1>
           <p className="text-muted-foreground mt-1 text-lg">
-            {experience.companyUrl ? (
-              <a
-                href={experience.companyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                {experience.company}
-              </a>
-            ) : (
-              experience.company
-            )}
+            <a
+              href={experience.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              {experience.company}
+            </a>
           </p>
         </div>
 

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
 import { BackButton } from "@/components/shared/back-button";
 import { ContentContainer } from "@/components/shared/content-container";
 import { TechBadge } from "@/components/shared/tech-badge";
+import { ActionLink } from "@/components/shared/action-link";
 import { getAllProjects, getProjectBySlug } from "@/data/projects";
 import { ProjectDetailContent } from "./content";
 
@@ -45,22 +45,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </p>
 
           {/* Action buttons */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            {project.liveUrl && (
-              <Button asChild>
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4" />
-                  View Live
-                </a>
-              </Button>
-            )}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.liveUrl && <ActionLink href={project.liveUrl} label="View Live" external />}
             {project.githubUrl && (
-              <Button variant="outline" asChild>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  View Source
-                  <Github className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <ActionLink href={project.githubUrl} label="GitHub" external variant="outline" />
             )}
           </div>
         </div>

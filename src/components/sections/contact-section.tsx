@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/data/site";
+import { contactInfo } from "@/data/contact";
 
 export function ContactSection() {
   return (
@@ -24,7 +24,7 @@ export function ContactSection() {
         </p>
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-6">
           <Button size="lg" className="gap-2 rounded-xl px-8 shadow-md" asChild>
-            <Link href={`mailto:${siteConfig.social.email}`}>
+            <Link href={contactInfo.find((c) => c.icon === "Mail")!.href}>
               <Mail className="h-4 w-4" />
               Send me an email
             </Link>

@@ -1,8 +1,11 @@
-import type { Project } from "./types";
+import type { Project, ProjectCategory } from "./types";
 
 const projects: Project[] = [
   {
     slug: "e-commerce-platform",
+    category: "fullstack",
+    isFeatured: true,
+    liveUrl: "https://ecommerce-azure-six-67.vercel.app",
     title: "Full-Stack E-Commerce Platform",
     description:
       "Production-ready e-commerce platform with multi-language support, dark/light mode, and a comprehensive admin dashboard.",
@@ -33,42 +36,13 @@ const projects: Project[] = [
       "i18next",
       "Google OAuth",
     ],
-    liveUrl: "https://ecommerce-azure-six-67.vercel.app",
-    isFeatured: true,
-    category: "fullstack",
-  },
-  {
-    slug: "awesome-prometheus-toolkit",
-    title: "Awesome Prometheus Toolkit",
-    description:
-      "Modern, searchable UI for 500+ Prometheus alert rules with real-time search and syntax-highlighted YAML.",
-    longDescription:
-      "A modern, searchable web interface for discovering and using 500+ Prometheus alert rules across dozens of services. Built to solve the pain point of finding the right alert rules for your infrastructure \u2014 instead of browsing raw YAML files in a GitHub repo, users get a polished UI with instant search, service-level organization, and one-click copy. The tool stays always in sync with the upstream GitHub repository, ensuring alert rules are never stale.",
-    features: [
-      "Real-time search across 500+ Prometheus alert rules with instant filtering as you type",
-      "Service cards with auto-resolved brand icons using Simple Icons for visual recognition",
-      "Modal view with syntax-highlighted YAML for easy reading and understanding of alert rules",
-      "One-click copy functionality to quickly grab alert rules for your Prometheus configuration",
-      "Always in sync with the upstream GitHub repository \u2014 automatically pulls latest alert definitions",
-      "Responsive design that works seamlessly on desktop and mobile devices",
-      "SEO-optimized with proper metadata for discoverability",
-    ],
-    technologies: [
-      "Next.js 15",
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS",
-      "Radix UI",
-      "LiquidJS",
-      "Simple Icons",
-    ],
-    liveUrl: "https://awesome-prometheus-toolkit-one.vercel.app",
-    githubUrl: "https://github.com/f-z-coder/awesome-prometheus-toolkit",
-    isFeatured: true,
-    category: "fullstack",
   },
   {
     slug: "jamaat-time",
+    category: "fullstack",
+    isFeatured: true,
+    liveUrl: "https://jamaat-time.netlify.app",
+    githubUrl: "https://github.com/f-z-coder/Jammat-Time",
     title: "Jamaat-Time",
     description:
       "Community-driven full-stack web app for locating nearby mosque prayer timings with Google Maps integration.",
@@ -93,13 +67,12 @@ const projects: Project[] = [
       "Google Maps API",
       "Google Places API",
     ],
-    liveUrl: "https://jamaat-time.netlify.app",
-    githubUrl: "https://github.com/f-z-coder/Jammat-Time",
-    isFeatured: true,
-    category: "fullstack",
   },
   {
     slug: "ac-service-website",
+    category: "fullstack",
+    isFeatured: true,
+    liveUrl: "https://www.telanganaacservice.com",
     title: "AC Service Website",
     description:
       "High-performance SEO-optimized freelance business website achieving perfect 100/100 Lighthouse scores.",
@@ -125,12 +98,43 @@ const projects: Project[] = [
       "ISR",
       "Vercel",
     ],
-    liveUrl: "https://www.telanganaacservice.com",
-    isFeatured: true,
+  },
+  {
+    slug: "awesome-prometheus-toolkit",
     category: "fullstack",
+    isFeatured: true,
+    liveUrl: "https://awesome-prometheus-toolkit-one.vercel.app",
+    githubUrl: "https://github.com/f-z-coder/awesome-prometheus-toolkit",
+    title: "Awesome Prometheus Toolkit",
+    description:
+      "Modern, searchable UI for 500+ Prometheus alert rules with real-time search and syntax-highlighted YAML.",
+    longDescription:
+      "A modern, searchable web interface for discovering and using 500+ Prometheus alert rules across dozens of services. Built to solve the pain point of finding the right alert rules for your infrastructure \u2014 instead of browsing raw YAML files in a GitHub repo, users get a polished UI with instant search, service-level organization, and one-click copy. The tool stays always in sync with the upstream GitHub repository, ensuring alert rules are never stale.",
+    features: [
+      "Real-time search across 500+ Prometheus alert rules with instant filtering as you type",
+      "Service cards with auto-resolved brand icons using Simple Icons for visual recognition",
+      "Modal view with syntax-highlighted YAML for easy reading and understanding of alert rules",
+      "One-click copy functionality to quickly grab alert rules for your Prometheus configuration",
+      "Always in sync with the upstream GitHub repository \u2014 automatically pulls latest alert definitions",
+      "Responsive design that works seamlessly on desktop and mobile devices",
+      "SEO-optimized with proper metadata for discoverability",
+    ],
+    technologies: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Radix UI",
+      "LiquidJS",
+      "Simple Icons",
+    ],
   },
   {
     slug: "reactflow-overview",
+    category: "frontend",
+
+    liveUrl: "https://reactflow-overview.netlify.app",
+    githubUrl: "https://github.com/f-z-coder/reactflow-overview",
     title: "Reactflow Overview",
     description:
       "Interactive app for creating dynamic, interactive diagrams with custom nodes, edges, and DAG validation.",
@@ -146,13 +150,13 @@ const projects: Project[] = [
       "Responsive canvas that adapts to screen size with zoom and pan controls",
     ],
     technologies: ["React", "React Flow", "JavaScript", "Tailwind CSS"],
-    liveUrl: "https://reactflow-overview.netlify.app",
-    githubUrl: "https://github.com/f-z-coder/reactflow-overview",
-    isFeatured: false,
-    category: "frontend",
   },
   {
     slug: "image-processing-app",
+    category: "fullstack",
+
+    liveUrl: "https://image-processing-app-frontend.netlify.app",
+    githubUrl: "https://github.com/f-z-coder/image-processing-app",
     title: "Image Processing App",
     description:
       "Full-stack web application for editing images online with real-time processing, adjustments, and format conversion.",
@@ -169,13 +173,13 @@ const projects: Project[] = [
       "Clean, intuitive UI built with React and Shadcn UI components",
     ],
     technologies: ["React", "TypeScript", "Shadcn UI", "Node.js", "Express", "Sharp"],
-    liveUrl: "https://image-processing-app-frontend.netlify.app",
-    githubUrl: "https://github.com/f-z-coder/image-processing-app",
-    isFeatured: false,
-    category: "fullstack",
   },
   {
     slug: "netflix-clone",
+    category: "frontend",
+
+    liveUrl: "https://faiz-flix.netlify.app",
+    githubUrl: "https://github.com/f-z-coder/Netflix_Clone",
     title: "Netflix Clone",
     description:
       "Fully responsive Netflix landing page recreation with pixel-perfect UI implementation.",
@@ -189,13 +193,13 @@ const projects: Project[] = [
       "Hero section with email signup CTA",
     ],
     technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://faiz-flix.netlify.app",
-    githubUrl: "https://github.com/f-z-coder/Netflix_Clone",
-    isFeatured: false,
-    category: "frontend",
   },
   {
     slug: "discord-clone",
+    category: "frontend",
+
+    liveUrl: "https://discord-clone-landing-page.netlify.app",
+    githubUrl: "https://github.com/f-z-coder/Discord_Clone",
     title: "Discord Clone",
     description:
       "Responsive and interactive Discord-inspired landing page built with mobile-first development approach.",
@@ -209,13 +213,12 @@ const projects: Project[] = [
       "Modern UI implementation faithful to Discord's design language",
     ],
     technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://discord-clone-landing-page.netlify.app",
-    githubUrl: "https://github.com/f-z-coder/Discord_Clone",
-    isFeatured: false,
-    category: "frontend",
   },
   {
     slug: "ts-express-mongodb-template",
+    category: "backend",
+
+    githubUrl: "https://github.com/f-z-coder/minimalistic-typescript-express-mongodb-template",
     title: "TypeScript Express MongoDB Template",
     description:
       "Production-ready minimalistic starter template for building API servers with TypeScript, Express, and MongoDB.",
@@ -232,49 +235,6 @@ const projects: Project[] = [
       "MongoDB connection with Mongoose ODM",
     ],
     technologies: ["TypeScript", "Express", "MongoDB", "Mongoose"],
-    githubUrl: "https://github.com/f-z-coder/minimalistic-typescript-express-mongodb-template",
-    isFeatured: false,
-    category: "backend",
-  },
-  {
-    slug: "calendar-backend",
-    title: "Calendar Backend",
-    description: "Backend API for a calendar application with event management.",
-    features: [
-      "RESTful API endpoints for calendar event CRUD operations",
-      "Event scheduling and management",
-    ],
-    technologies: ["TypeScript", "Node.js"],
-    githubUrl: "https://github.com/f-z-coder/Calendar-Backend",
-    isFeatured: false,
-    category: "backend",
-  },
-  {
-    slug: "resume-builder",
-    title: "Resume Builder",
-    description: "Web application to create and customize resumes with templates.",
-    features: [
-      "Resume creation with customizable sections",
-      "Template-based resume generation",
-      "Export and download functionality",
-    ],
-    technologies: ["JavaScript", "HTML", "CSS"],
-    githubUrl: "https://github.com/f-z-coder/Resume_Builder",
-    isFeatured: false,
-    category: "frontend",
-  },
-  {
-    slug: "helpful-stuff",
-    title: "HelpFull-Stuff",
-    description: "A collection of helpful web utilities, snippets, and reusable code.",
-    features: [
-      "Curated collection of reusable web utilities",
-      "Handy code snippets for common tasks",
-    ],
-    technologies: ["CSS", "HTML", "JavaScript"],
-    githubUrl: "https://github.com/f-z-coder/HelpFull-Stuff",
-    isFeatured: false,
-    category: "tool",
   },
 ];
 
@@ -286,10 +246,17 @@ export function getFeaturedProjects(): Project[] {
   return projects.filter((p) => p.isFeatured);
 }
 
-export function getOtherProjects(): Project[] {
-  return projects.filter((p) => !p.isFeatured);
-}
-
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+export const categoryLabels: Record<ProjectCategory | "all", string> = {
+  all: "All",
+  fullstack: "Full Stack",
+  frontend: "Frontend",
+  backend: "Backend",
+};
+
+export function getProjectCategories(): string[] {
+  return ["all", ...Array.from(new Set(projects.map((p) => p.category)))];
 }

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ActionLink } from "./action-link";
 import type { Project } from "@/data/types";
 
 interface ProjectCardProps {
@@ -19,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <CardTitle className="group-hover:text-primary text-base transition-colors">
               {project.title}
             </CardTitle>
-            <ArrowUpRight className="text-muted-foreground h-4 w-4 shrink-0 opacity-20 transition-opacity group-hover:opacity-100" />
+            <ArrowRight className="text-muted-foreground h-4 w-4 shrink-0 opacity-20 transition-opacity group-hover:opacity-100" />
           </div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
             {project.description}
@@ -43,27 +44,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {(project.liveUrl || project.githubUrl) && (
             <div className="border-border/50 flex items-center gap-2 border-t pt-3">
               {project.liveUrl && (
-                <span
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open(project.liveUrl, "_blank");
-                  }}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                >
-                  View Live
-                  <ArrowUpRight className="h-3 w-3" />
+                <span onClick={(e) => e.preventDefault()}>
+                  <ActionLink href={project.liveUrl} label="View Live" external />
                 </span>
               )}
               {project.githubUrl && (
-                <span
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open(project.githubUrl, "_blank");
-                  }}
-                  className="border-border text-muted-foreground hover:text-foreground hover:bg-accent inline-flex cursor-pointer items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors"
-                >
-                  GitHub
-                  <ArrowUpRight className="h-3 w-3" />
+                <span onClick={(e) => e.preventDefault()}>
+                  <ActionLink href={project.githubUrl} label="GitHub" external variant="outline" />
                 </span>
               )}
             </div>

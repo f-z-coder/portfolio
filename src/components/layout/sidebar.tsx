@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Download, Mail, Phone, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/site";
+import { contactInfo } from "@/data/contact";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -13,6 +14,16 @@ function XIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Mail,
+  Phone,
+  Github,
+  Linkedin,
+  X: XIcon,
+};
+
+const externalIcons = new Set(["Github", "Linkedin", "X"]);
 
 const container = {
   hidden: {},
@@ -27,27 +38,6 @@ const fadeUp = {
     transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
-
-const contactLinks = [
-  {
-    icon: Mail,
-    label: siteConfig.social.email,
-    href: `mailto:${siteConfig.social.email}`,
-    external: false,
-  },
-  {
-    icon: Phone,
-    label: "+91 91126 77274",
-    href: `tel:${siteConfig.social.phone}`,
-    external: false,
-  },
-];
-
-const socialLinks = [
-  { Icon: Github, label: "GitHub", username: "f-z-coder", href: siteConfig.social.github },
-  { Icon: Linkedin, label: "LinkedIn", username: "f-z-coder", href: siteConfig.social.linkedin },
-  { Icon: XIcon, label: "X", username: "@fz_coder", href: siteConfig.social.twitter },
-];
 
 export function Sidebar() {
   return (
@@ -94,40 +84,27 @@ export function Sidebar() {
 
         {/* Bottom section */}
         <motion.div variants={fadeUp} className="mt-8 space-y-4">
-          {/* Divider */}
           <div className="border-border/60 border-t" />
 
-          {/* Unified contact + social list */}
           <div className="space-y-0.5">
-            {/* Email + Phone */}
-            {contactLinks.map(({ icon: Icon, label, href }) => (
-              <a
-                key={href}
-                href={href}
-                className="text-muted-foreground hover:text-foreground group flex items-center gap-3 rounded-lg py-1.5 text-sm transition-colors"
-              >
-                <Icon className="h-3.5 w-3.5 shrink-0" />
-                <span className="truncate">{label}</span>
-              </a>
-            ))}
-
-            {/* Thin inner separator */}
-            <div className="border-border/40 my-1 border-t" />
-
-            {/* GitHub, LinkedIn, X */}
-            {socialLinks.map(({ Icon, label, username, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground group flex items-center gap-3 rounded-lg py-1.5 text-sm transition-colors"
-              >
-                <Icon className="h-3.5 w-3.5 shrink-0" />
-                <span className="flex-1 text-xs">{username}</span>
-                <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-60" />
-              </a>
-            ))}
+            {contactInfo.map(({ icon, label, value, href }) => {
+              const Icon = iconMap[icon];
+              const isExternal = externalIcons.has(icon);
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-muted-foreground hover:text-foreground group flex items-center gap-3 rounded-lg py-1.5 text-sm transition-colors"
+                >
+                  {Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
+                  <span className="flex-1 truncate text-xs">{value}</span>
+                  {isExternal && (
+                    <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-60" />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           {/* Resume CTA */}

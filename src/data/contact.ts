@@ -14,9 +14,15 @@ export const contactInfo: ContactInfo[] = [
     href: "tel:+919112677274",
   },
   {
+    icon: "Github",
+    label: "GitHub",
+    value: "f-z-coder",
+    href: "https://github.com/f-z-coder",
+  },
+  {
     icon: "Linkedin",
     label: "LinkedIn",
-    value: "Faiz Shaikh",
+    value: "f-z-coder",
     href: "https://www.linkedin.com/in/f-z-coder/",
   },
   {

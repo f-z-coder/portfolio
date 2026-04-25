@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, Award } from "lucide-react";
-import { siteConfig } from "@/data/site";
+import { education } from "@/data/education";
 
 export function EducationSection() {
   return (
@@ -29,16 +29,16 @@ export function EducationSection() {
             <GraduationCap className="text-primary h-5 w-5" />
           </div>
           <div>
-            <h3 className="font-semibold">{siteConfig.education.institution}</h3>
-            <p className="text-muted-foreground mt-0.5 text-sm">{siteConfig.education.degree}</p>
+            <h3 className="font-semibold">{education.institution}</h3>
+            <p className="text-muted-foreground mt-0.5 text-sm">{education.degree}</p>
             <div className="text-muted-foreground mt-3 flex flex-wrap gap-4 text-sm">
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
-                {siteConfig.education.period}
+                {education.period}
               </span>
               <span className="flex items-center gap-1.5">
                 <Award className="h-3.5 w-3.5" />
-                CGPA: {siteConfig.education.gpa}
+                CGPA: {education.gpa}
               </span>
             </div>
           </div>

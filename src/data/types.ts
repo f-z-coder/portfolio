@@ -2,25 +2,27 @@ export interface Experience {
   slug: string;
   title: string;
   company: string;
-  companyUrl?: string;
+  companyUrl: string;
   period: string;
+  isCurrent?: boolean;
   summary: string;
   responsibilities: string[];
   technologies: string[];
-  isCurrent: boolean;
 }
+
+export type ProjectCategory = "fullstack" | "frontend" | "backend";
 
 export interface Project {
   slug: string;
-  title: string;
-  description: string;
-  longDescription?: string;
-  features: string[];
-  technologies: string[];
+  category: ProjectCategory;
+  isFeatured?: boolean;
   liveUrl?: string;
   githubUrl?: string;
-  isFeatured: boolean;
-  category: "fullstack" | "frontend" | "backend" | "tool";
+  title: string;
+  description: string;
+  longDescription: string;
+  features: string[];
+  technologies: string[];
 }
 
 export interface SkillCategory {
@@ -36,23 +38,17 @@ export interface ContactInfo {
   href: string;
 }
 
+export interface Education {
+  institution: string;
+  degree: string;
+  period: string;
+  gpa: string;
+}
+
 export interface SiteConfig {
   name: string;
   title: string;
   description: string;
   url: string;
   resumePath: string;
-  social: {
-    github: string;
-    linkedin: string;
-    twitter: string;
-    email: string;
-    phone: string;
-  };
-  education: {
-    institution: string;
-    degree: string;
-    period: string;
-    gpa: string;
-  };
 }

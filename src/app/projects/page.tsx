@@ -1,27 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BackButton } from "@/components/shared/back-button";
 import { ProjectCard } from "@/components/shared/project-card";
-import { getAllProjects } from "@/data/projects";
+import { getAllProjects, getProjectCategories, categoryLabels } from "@/data/projects";
 import { ContentContainer } from "@/components/shared/content-container";
 import type { Project } from "@/data/types";
 
 const allProjects = getAllProjects();
-const categories = ["all", "fullstack", "frontend", "backend", "tool"] as const;
-const categoryLabels: Record<string, string> = {
-  all: "All",
-  fullstack: "Full Stack",
-  frontend: "Frontend",
-  backend: "Backend",
-  tool: "Tools",
-};
+const categories = getProjectCategories();
 
-export default function ProjectsPage() {
-  const [filter, setFilter] = useState<string>("all");
+function ProjectsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const filter = searchParams.get("category") ?? "all";
   const filtered =
     filter === "all" ? allProjects : allProjects.filter((p) => p.category === filter);
+
+  function selectCategory(cat: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (cat === "all") {
+      params.delete("category");
+    } else {
+      params.set("category", cat);
+    }
+    router.replace(`/projects?${params.toString()}`, { scroll: false });
+  }
 
   return (
     <ContentContainer>
@@ -37,7 +43,7 @@ export default function ProjectsPage() {
         {categories.map((cat) => (
           <button
             key={cat}
-            onClick={() => setFilter(cat)}
+            onClick={() => selectCategory(cat)}
             className={`cursor-pointer rounded-md px-3 py-1.5 text-sm transition-all ${
               filter === cat
                 ? "bg-background text-foreground font-medium shadow-sm"
@@ -67,5 +73,13 @@ export default function ProjectsPage() {
         </AnimatePresence>
       </div>
     </ContentContainer>
+  );
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense>
+      <ProjectsContent />
+    </Suspense>
   );
 }

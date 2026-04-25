@@ -35,8 +35,8 @@ const experiences: Experience[] = [
     slug: "uixperts-labs",
     title: "Frontend Web Developer",
     company: "Uixperts Labs",
+    companyUrl: "https://www.uixpertslabs.com/",
     period: "Jul 2024 - Dec 2024",
-    isCurrent: false,
     summary:
       "Led development of a centralized multilingual employee management platform handling employee-related tasks, app access, and account administration with full internationalization support.",
     responsibilities: [
@@ -62,8 +62,8 @@ const experiences: Experience[] = [
     slug: "vuclip",
     title: "Web Developer Intern",
     company: "Vuclip",
+    companyUrl: "https://www.linkedin.com/company/viuott/",
     period: "Oct 2023 - Mar 2024",
-    isCurrent: false,
     summary:
       "Led web performance optimization for an OTT video streaming platform, improving Lighthouse scores by 20 percentage points. Built Progressive Web Apps enhancing mobile user engagement.",
     responsibilities: [
