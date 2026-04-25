@@ -1,7 +1,7 @@
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { jsonLd } from "@/lib/schema-markup";
-import { SidebarGuard } from "@/components/layout/sidebar-guard";
+import { Sidebar } from "@/components/layout/sidebar";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -31,7 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
         disableTransitionOnChange
       >
         <div className="mx-auto max-w-screen-2xl lg:flex">
-          <SidebarGuard />
+          <Sidebar />
           <div className="flex min-h-screen min-w-0 flex-1 flex-col">
             <div className="flex-1">{children}</div>
             <footer className="mx-auto w-full max-w-4xl px-6 pb-6 text-right lg:px-10">
