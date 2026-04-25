@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: `Full-Stack Developer building performant web apps with React, Go, TypeScript, Python, and Astro.`,
+    description: siteConfig.description,
     creator: contacts.x.value,
     images: [siteConfig.ogImagePath],
   },

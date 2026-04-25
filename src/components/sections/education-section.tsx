@@ -9,14 +9,14 @@ import { EASE, VIEWPORT } from "@/lib/animations";
 
 export const EducationSection = () => (
   <SectionWrapper id="education">
-    <SectionHeading title="Education" titleClassName="mb-2" />
+    <SectionHeading title="Education" subtitle="Where I studied" className="mb-10" />
 
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT.item}
       transition={{ duration: 0.45, ease: EASE }}
-      className="bg-card mt-8 rounded-xl border p-6"
+      className="bg-card rounded-xl border p-6"
     >
       <div className="flex items-start gap-4">
         <div className="bg-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">

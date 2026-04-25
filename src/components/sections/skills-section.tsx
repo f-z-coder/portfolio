@@ -9,13 +9,7 @@ import { STAGGER } from "@/lib/animations";
 
 export const SkillsSection = () => (
   <SectionWrapper id="skills">
-    <SectionHeading
-      title="Skills"
-      subtitle="Technologies I work with daily"
-      className="mb-10"
-      titleClassName="mb-2"
-      subtitleClassName="text-sm"
-    />
+    <SectionHeading title="Skills" subtitle="Technologies I work with daily" className="mb-10" />
 
     <StaggerGrid staggerDelay={STAGGER.small} className="grid gap-4 sm:grid-cols-2">
       {skillCategories.map(({ name, icon: Icon, skills }) => (

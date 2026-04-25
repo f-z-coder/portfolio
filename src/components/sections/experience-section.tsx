@@ -16,8 +16,6 @@ export const ExperienceSection = () => (
       title="Experience"
       subtitle="Where I've worked and what I've built"
       className="mb-10"
-      titleClassName="mb-2"
-      subtitleClassName="text-sm"
     />
 
     <div className="relative">
