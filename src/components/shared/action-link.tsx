@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "@/components/shared/external-link";
 import { cn } from "@/lib/utils";
 
 interface ActionLinkProps {
@@ -36,9 +37,9 @@ export const ActionLink = ({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      <ExternalLink href={href} className={classes}>
         {content}
-      </a>
+      </ExternalLink>
     );
   }
 

@@ -1,5 +1,5 @@
 import { Code2, Layers, Database } from "lucide-react";
-import type { SkillCategory } from "./types";
+import type { SkillCategory } from "@/data/types";
 
 export const skillCategories: SkillCategory[] = [
   {

@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TechBadgeList } from "./tech-badge-list";
-import { ActionLink } from "./action-link";
-import { CardActions } from "./card-actions";
+import { TechBadgeList } from "@/components/shared/tech-badge-list";
+import { ActionLink } from "@/components/shared/action-link";
+import { CardActions } from "@/components/shared/card-actions";
 import { DURATION, EASE } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import type { Experience } from "@/data/types";

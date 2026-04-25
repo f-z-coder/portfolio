@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 interface ExternalLinkProps {
   href: string;
   children: React.ReactNode;
@@ -7,12 +5,7 @@ interface ExternalLinkProps {
 }
 
 export const ExternalLink = ({ href, children, className }: ExternalLinkProps) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={cn("text-primary hover:text-primary/80 transition-colors", className)}
-  >
+  <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
     {children}
   </a>
 );

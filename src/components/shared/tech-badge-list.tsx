@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { TechBadge } from "./tech-badge";
+import { TechBadge } from "@/components/shared/tech-badge";
 import { cn } from "@/lib/utils";
 
 interface TechBadgeListProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "@/components/layout/sidebar";
 
 export const SidebarGuard = () => {
   const isHome = usePathname() === "/";

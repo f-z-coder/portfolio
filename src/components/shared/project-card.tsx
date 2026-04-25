@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ActionLink } from "./action-link";
-import { TechBadgeList } from "./tech-badge-list";
-import { CardActions } from "./card-actions";
+import { ActionLink } from "@/components/shared/action-link";
+import { TechBadgeList } from "@/components/shared/tech-badge-list";
+import { CardActions } from "@/components/shared/card-actions";
 import type { Project } from "@/data/types";
 
 const MAX_TECH_BADGES = 4;

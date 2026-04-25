@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { GmailIcon, LinkedInIcon, XIcon, GitHubIcon } from "@/components/icons/brand-icons";
-import type { ContactItem, ContactType } from "./types";
+import type { ContactItem, ContactType } from "@/data/types";
 
 export const contacts: Record<ContactType, ContactItem> = {
   email: {
