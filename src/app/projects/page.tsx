@@ -15,9 +15,6 @@ const allProjects = getAllProjects();
 const categories = getProjectCategories();
 type CategoryKey = (typeof categories)[number];
 
-const FOCUS_RING =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2";
-
 const ProjectsLoading = () => (
   <ContentContainer>
     <div className="bg-muted/50 h-9 w-32 animate-pulse rounded" />
@@ -70,7 +67,6 @@ const ProjectsContent = () => {
               onClick={() => selectCategory(cat)}
               className={cn(
                 "cursor-pointer rounded-md px-3 py-1.5 text-sm transition-all",
-                FOCUS_RING,
                 filter === cat
                   ? "bg-background text-foreground font-medium shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
