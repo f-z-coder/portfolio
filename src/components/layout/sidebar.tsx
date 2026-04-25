@@ -22,7 +22,7 @@ export const Sidebar = () => (
         <div className="from-primary/30 absolute -inset-3 rounded-3xl bg-linear-to-b to-transparent blur-2xl" />
         <div className="relative h-28 w-28 overflow-hidden rounded-2xl shadow-md lg:h-36 lg:w-36">
           <Image
-            src={siteConfig.ogImage}
+            src={siteConfig.ogImagePath}
             alt={siteConfig.name}
             fill
             className="object-cover"
@@ -54,7 +54,7 @@ export const Sidebar = () => (
         </div>
 
         <Button size="sm" className="-ml-3 w-fit gap-3" asChild>
-          <a href={siteConfig.resumePath} download={siteConfig.resumeFileName}>
+          <a href={siteConfig.resumePath} download>
             <Download className="h-3.5 w-3.5" />
             Download Resume
           </a>

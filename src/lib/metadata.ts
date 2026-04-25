@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { contacts } from "@/data/contact";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: siteConfig.ogImagePath,
         width: 1200,
         height: 630,
         alt: siteConfig.title,
@@ -43,8 +44,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: `Full-Stack Developer building performant web apps with React, Go, TypeScript, Python, and Astro.`,
-    creator: siteConfig.social.twitterHandle,
-    images: [siteConfig.ogImage],
+    creator: contacts.x.value,
+    images: [siteConfig.ogImagePath],
   },
   robots: {
     index: true,

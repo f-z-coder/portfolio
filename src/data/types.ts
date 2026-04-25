@@ -40,6 +40,8 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+export type ContactType = "email" | "phone" | "github" | "linkedin" | "x";
+
 export interface ContactItem {
   icon: IconComponent;
   label: string;
@@ -54,13 +56,6 @@ export interface Education {
   gpa: string;
 }
 
-export interface SocialLinks {
-  github: string;
-  linkedin: string;
-  twitter: string;
-  twitterHandle: string;
-}
-
 export interface CompanyRef {
   name: string;
   url: string;
@@ -73,9 +68,7 @@ export interface SiteConfig {
   description: string;
   bio: string;
   url: string;
-  ogImage: string;
+  ogImagePath: string;
   resumePath: string;
-  resumeFileName: string;
-  social: SocialLinks;
   currentCompany: CompanyRef;
 }

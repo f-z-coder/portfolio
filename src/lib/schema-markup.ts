@@ -1,3 +1,4 @@
+import { contacts } from "@/data/contact";
 import { siteConfig } from "@/data/site";
 
 export const jsonLd = {
@@ -6,7 +7,7 @@ export const jsonLd = {
   name: siteConfig.name,
   jobTitle: siteConfig.jobTitle,
   url: siteConfig.url,
-  sameAs: [siteConfig.social.github, siteConfig.social.linkedin, siteConfig.social.twitter],
-  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  sameAs: [contacts.github.href, contacts.linkedin.href, contacts.x.href],
+  image: `${siteConfig.url}${siteConfig.ogImagePath}`,
   description: siteConfig.description,
 };
