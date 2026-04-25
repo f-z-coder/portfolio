@@ -1,93 +1,80 @@
-# Faiz Shaikh - Portfolio Website
+<div align="center">
 
-A modern, responsive portfolio website showcasing my skills, experience, and projects as a Full-Stack Web Developer.
+# Faiz Shaikh — Portfolio
 
-## 🚀 Live Demo
+Personal portfolio website showcasing my experience, projects, and skills as a Full-Stack Developer. Built with a focus on performance, accessibility, and a refined dark-first design.
 
-[View live demo](https://www.faiz-shaikh.in)
+**[faiz-shaikh.in](https://www.faiz-shaikh.in)**
 
-![Portfolio Screenshot](https://github.com/f-z-coder/portfolio/blob/main/public/website-preview.png)
+</div>
 
-## 🛠️ Built With
+---
 
-- [Next.js](https://nextjs.org/) - React framework for production
-- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [shadcn/ui](https://ui.shadcn.com/) - UI components
+## What's Inside
 
-## ✨ Features
+A sidebar-anchored portfolio with animated section reveals, a dedicated projects browser with category filtering, and individual detail pages for every project and work experience. The design system is built on OKLCH color tokens, a centralized Framer Motion animation library, and Tailwind CSS v4.
 
-- Responsive design for all screen sizes
-- Dark/Light mode
-- Interactive project showcases
-- Animated skill visualizations
-- Downloadable resume
-- Smooth scrolling and animations
+**Sections:**
+- Experience — vertical timeline with alternating cards and spring-animated markers
+- Projects — featured grid on home, full filterable catalog at `/projects`
+- Skills — categorized technology pills
+- Education — institution card with degree and dates
+- Contact — CTA card with direct links
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Prerequisites
+**Next.js 16** · **React 19** · **TypeScript** · **Tailwind CSS v4** · **Framer Motion** · **shadcn/ui** · **OKLCH color space**
 
-- Node.js (v14 or higher)
-- pnpm (v7 or higher)
+Animation tokens (`EASE`, `DURATION`, `OFFSET`, `STAGGER`, `VIEWPORT`, `SPRING`) are centralized in `src/lib/animations.ts` so every entrance, stagger, and spring effect stays consistent across the codebase.
 
-To install pnpm, run:
+## Project Structure
 
-```bash
-npm install -g pnpm
+```
+src/
+├── app/
+│   ├── page.tsx                    # Home — all sections
+│   ├── projects/
+│   │   ├── page.tsx                # Full projects catalog with category filter
+│   │   └── [slug]/page.tsx         # Project detail page
+│   └── experience/
+│       └── [slug]/page.tsx         # Experience detail page
+├── components/
+│   ├── layout/                     # Sidebar
+│   ├── sections/                   # Experience, Projects, Skills, Education, Contact
+│   ├── shared/                     # Reusable primitives (cards, badges, links, headings)
+│   └── ui/                         # shadcn/ui base components
+├── data/                           # All content — projects, experience, skills, education
+└── lib/
+    └── animations.ts               # Motion token system
 ```
 
-### Installation
-
-1. Clone the repository
+## Getting Started
 
 ```bash
 git clone https://github.com/f-z-coder/portfolio.git
-```
-
-2. Navigate to the project directory
-
-```bash
 cd portfolio
-```
-
-3. Install dependencies
-
-```bash
 pnpm install
-```
-
-4. Start the development server
-
-```bash
 pnpm dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## 🔧 Development
-
-### Available Scripts
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```bash
-pnpm dev        # Start development server
-pnpm build      # Build for production
+pnpm build      # Production build
 pnpm start      # Start production server
-pnpm lint       # Run ESLint
-pnpm format     # Format code with Prettier
+pnpm lint       # ESLint
+pnpm format     # Prettier
 ```
 
-## 📄 License
+## Customization
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+All content lives in `src/data/` — no CMS, no database. To make it your own:
 
-## 📫 Contact
-
-- Email: faizshaikh72740@gmail.com
-- LinkedIn: [Faiz Shaikh](https://www.linkedin.com/in/f-z-coder/)
-- Twitter: [@fz_coder](https://x.com/fz_coder)
-
-## 🙏 Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
-- [Vercel](https://vercel.com) for hosting
+| File | What it controls |
+|---|---|
+| `site.ts` | Name, job title, bio, URL, resume path, current company |
+| `experience.ts` | Work history with responsibilities and tech stack |
+| `projects.ts` | Projects with descriptions, features, links, and categories |
+| `skills.ts` | Skill categories and individual technologies |
+| `education.ts` | Institution, degree, and dates |
+| `contact.ts` | Email, phone, GitHub, LinkedIn, X links |
