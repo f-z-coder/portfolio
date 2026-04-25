@@ -175,6 +175,36 @@ const projects: Project[] = [
     technologies: ["React", "TypeScript", "Shadcn UI", "Node.js", "Express", "Sharp"],
   },
   {
+    slug: "portfolio",
+    category: "frontend",
+
+    liveUrl: "https://www.faiz-shaikh.in",
+    githubUrl: "https://github.com/f-z-coder/portfolio",
+    title: "Personal Portfolio",
+    description:
+      "Dark-first developer portfolio built with Next.js 16, Tailwind CSS v4, and Framer Motion with animated sections and filterable project catalog.",
+    longDescription:
+      "Designed and built my personal portfolio from scratch with a focus on performance, accessibility, and a refined dark-first aesthetic. Features a sticky sidebar navigation on desktop, animated section reveals driven by a centralized Framer Motion token system, and individual detail pages for every project and work experience entry. The projects catalog supports category filtering with AnimatePresence transitions. All content is driven by typed data files — no CMS or database required. The design system uses OKLCH color tokens, shadcn/ui primitives, and Tailwind CSS v4 with custom radius and spacing scales.",
+    features: [
+      "Sticky sidebar layout on desktop with full-width single-column on mobile",
+      "Centralized Framer Motion token system (EASE, DURATION, OFFSET, STAGGER, VIEWPORT, SPRING) for consistent animations across all sections",
+      "Experience section with alternating timeline cards and spring-animated dot markers",
+      "Projects catalog at /projects with category filter and AnimatePresence card transitions",
+      "Individual detail pages for every project and work experience with back-navigation",
+      "OKLCH color space for perceptually uniform light and dark mode theming",
+      "All content driven by typed TypeScript data files — no CMS or database",
+      "Perfect Lighthouse scores with Next.js static generation and optimized images",
+    ],
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "Shadcn UI",
+    ],
+  },
+  {
     slug: "netflix-clone",
     category: "frontend",
 
