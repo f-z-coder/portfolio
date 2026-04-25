@@ -25,8 +25,6 @@ A sidebar-anchored portfolio with animated section reveals, a dedicated projects
 
 **Next.js 16** · **React 19** · **TypeScript** · **Tailwind CSS v4** · **Framer Motion** · **shadcn/ui** · **OKLCH color space**
 
-Animation tokens (`EASE`, `DURATION`, `OFFSET`, `STAGGER`, `VIEWPORT`, `SPRING`) are centralized in `src/lib/animations.ts` so every entrance, stagger, and spring effect stays consistent across the codebase.
-
 ## Project Structure
 
 ```
