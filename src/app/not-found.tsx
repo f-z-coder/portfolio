@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DetailPageHeading } from "@/components/shared/detail-page-heading";
 
 const NotFound = () => (
   <div className="container flex min-h-[60vh] flex-col items-center justify-center text-center">
-    <h1 className="text-6xl font-bold tracking-tighter">404</h1>
-    <p className="text-muted-foreground mt-4 text-xl">Page not found</p>
+    <p className="text-6xl font-bold tracking-tighter">404</p>
+    <DetailPageHeading className="mt-4">Page not found</DetailPageHeading>
     <p className="text-muted-foreground mt-2">
       The page you&apos;re looking for doesn&apos;t exist or has been moved.
     </p>

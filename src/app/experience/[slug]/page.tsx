@@ -6,8 +6,10 @@ import { BackButton } from "@/components/shared/back-button";
 import { BulletList } from "@/components/shared/bullet-list";
 import { ContentContainer } from "@/components/shared/content-container";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
+import { DetailPageDescription } from "@/components/shared/detail-page-description";
+import { DetailPageHeading } from "@/components/shared/detail-page-heading";
 import { DetailSection } from "@/components/shared/detail-section";
-import { ExternalLink } from "@/components/shared/external-link";
+import { ActionLink } from "@/components/shared/action-link";
 import { RelatedExperienceCard } from "@/components/shared/related-experience-card";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
 import { getAllExperiences, getExperienceBySlug } from "@/data/experience";
@@ -42,19 +44,20 @@ const ExperienceDetailPage = async ({ params }: PageProps) => {
 
       <DetailPageContent>
         <div className="mb-8">
-          <div className="mb-2 flex flex-wrap items-center gap-2">
-            {experience.isCurrent && <Badge variant="default">Current</Badge>}
+          <div className="mb-3 flex flex-wrap items-center gap-2">
             <Badge variant="outline">{experience.period}</Badge>
+            {experience.isCurrent && <Badge variant="default">Current</Badge>}
           </div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{experience.title}</h1>
-          <p className="text-muted-foreground mt-1 text-lg">
-            <ExternalLink
+          <DetailPageHeading>{experience.title}</DetailPageHeading>
+          <DetailPageDescription className="mt-3">
+            <ActionLink
               href={experience.companyUrl}
-              className="text-primary hover:text-primary/80 transition-colors"
-            >
-              {experience.company}
-            </ExternalLink>
-          </p>
+              label={experience.company}
+              external
+              variant="text"
+              className="text-base"
+            />
+          </DetailPageDescription>
         </div>
 
         <DetailSection title="What I Did">

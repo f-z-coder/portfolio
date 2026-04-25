@@ -7,13 +7,14 @@ interface ActionLinkProps {
   href: string;
   label: string;
   external?: boolean;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "text";
   className?: string;
 }
 
 const VARIANT_STYLES = {
   primary: "bg-primary text-primary-foreground hover:bg-primary/90",
   outline: "border-border text-muted-foreground hover:text-foreground hover:bg-accent border",
+  text: "px-0 py-0 rounded-none text-primary hover:text-primary/80",
 } as const;
 
 const BASE_STYLES =
@@ -31,7 +32,7 @@ export const ActionLink = ({
   const content = (
     <>
       {label}
-      <Icon className="h-3 w-3" />
+      <Icon className={variant === "text" ? "size-4" : "size-3"} />
     </>
   );
 

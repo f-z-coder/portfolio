@@ -16,7 +16,7 @@ export const ProjectsSection = () => (
       <SectionHeading title="Projects" subtitle="Featured work I'm proud of" />
       <Link
         href="/projects"
-        className="text-muted-foreground hover:text-primary flex items-center gap-1 text-sm font-medium transition-colors"
+        className="text-muted-foreground hover:text-primary flex items-center gap-1 text-sm font-medium transition-colors duration-200"
       >
         View all
         <ArrowRight className="h-3.5 w-3.5" />

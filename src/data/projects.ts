@@ -178,7 +178,7 @@ const projects: Project[] = [
     slug: "netflix-clone",
     category: "frontend",
 
-    liveUrl: "https://faiz-flix.netlify.app",
+    liveUrl: "https://faiz-flixx.netlify.app",
     githubUrl: "https://github.com/f-z-coder/Netflix_Clone",
     title: "Netflix Clone",
     description:

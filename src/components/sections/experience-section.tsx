@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { StaggerGrid } from "@/components/shared/stagger-grid";
 import { getAllExperiences } from "@/data/experience";
-import { DURATION, EASE, STAGGER, VIEWPORT } from "@/lib/animations";
+import { DURATION, EASE, SPRING, STAGGER, VIEWPORT } from "@/lib/animations";
 
 const experiences = getAllExperiences();
 
@@ -39,7 +39,7 @@ export const ExperienceSection = () => (
                 hidden: { scale: 0 },
                 visible: {
                   scale: 1,
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                  transition: SPRING.snappy,
                 },
               }}
             />

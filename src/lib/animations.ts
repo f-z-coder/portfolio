@@ -3,10 +3,15 @@ import type { Variants } from "framer-motion";
 export const EASE = [0.25, 0.1, 0.25, 1] as const;
 
 export const DURATION = {
+  xfast: 0.2,
   fast: 0.4,
   normal: 0.5,
   slow: 0.6,
   emphasis: 0.8,
+} as const;
+
+export const SPRING = {
+  snappy: { type: "spring" as const, stiffness: 300, damping: 15 },
 } as const;
 
 export const VIEWPORT = {

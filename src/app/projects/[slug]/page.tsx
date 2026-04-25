@@ -5,6 +5,8 @@ import { ContentContainer } from "@/components/shared/content-container";
 import { ProjectLinks } from "@/components/shared/project-links";
 import { BulletList } from "@/components/shared/bullet-list";
 import { DetailPageContent } from "@/components/shared/detail-page-content";
+import { DetailPageDescription } from "@/components/shared/detail-page-description";
+import { DetailPageHeading } from "@/components/shared/detail-page-heading";
 import { DetailSection } from "@/components/shared/detail-section";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
 import { getAllProjects, getProjectBySlug } from "@/data/projects";
@@ -37,11 +39,10 @@ const ProjectDetailPage = async ({ params }: PageProps) => {
 
       <DetailPageContent>
         <div className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{project.title}</h1>
-          <p className="text-muted-foreground mt-3 text-lg leading-relaxed">
+          <DetailPageHeading>{project.title}</DetailPageHeading>
+          <DetailPageDescription className="mt-3 text-lg leading-relaxed">
             {project.longDescription || project.description}
-          </p>
-
+          </DetailPageDescription>
           <ProjectLinks liveUrl={project.liveUrl} githubUrl={project.githubUrl} className="mt-6" />
         </div>
 

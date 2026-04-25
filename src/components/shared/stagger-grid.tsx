@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { DURATION, EASE, STAGGER, VIEWPORT, staggerContainer } from "@/lib/animations";
+import { DURATION, EASE, OFFSET, STAGGER, VIEWPORT, staggerContainer } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 interface StaggerGridProps {
@@ -38,7 +38,7 @@ interface StaggerItemProps {
 export const StaggerItem = ({
   children,
   className,
-  yOffset = 20,
+  yOffset = OFFSET.md,
   duration = DURATION.fast,
 }: StaggerItemProps) => {
   const variants: Variants = {
