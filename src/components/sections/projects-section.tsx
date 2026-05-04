@@ -5,7 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/shared/project-card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
-import { StaggerGrid, StaggerItem } from "@/components/shared/stagger-grid";
+import { StaggerItem } from "@/components/shared/stagger-item";
+import { STAGGER } from "@/lib/animations";
 import { getFeaturedProjects } from "@/data/projects";
 
 const featured = getFeaturedProjects();
@@ -23,12 +24,12 @@ export const ProjectsSection = () => (
       </Link>
     </div>
 
-    <StaggerGrid className="grid gap-4 sm:grid-cols-2">
-      {featured.map((project) => (
-        <StaggerItem key={project.slug}>
+    <div className="grid gap-4 sm:grid-cols-2">
+      {featured.map((project, index) => (
+        <StaggerItem key={project.slug} delay={index * STAGGER.base}>
           <ProjectCard project={project} />
         </StaggerItem>
       ))}
-    </StaggerGrid>
+    </div>
   </SectionWrapper>
 );
