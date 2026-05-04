@@ -9,8 +9,12 @@ import { DetailPageDescription } from "@/components/shared/detail-page-descripti
 import { DetailPageHeading } from "@/components/shared/detail-page-heading";
 import { DetailSection } from "@/components/shared/detail-section";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
+import { contacts } from "@/data/contact";
 import { getAllProjects, getProjectBySlug } from "@/data/projects";
 import { siteConfig } from "@/data/site";
+import { ogImage, seoKeywords } from "@/lib/metadata";
+import { buildBreadcrumbJsonLd } from "@/lib/schema-markup";
+import { truncate } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,9 +26,29 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
+  const url = `${siteConfig.url}/projects/${project.slug}`;
+  const description = truncate(project.description);
   return {
-    title: `${project.title} - ${siteConfig.name}`,
-    description: project.description,
+    title: project.title,
+    description,
+    keywords: Array.from(new Set([...seoKeywords, ...project.technologies])),
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      url,
+      title: project.title,
+      description,
+      siteName: `${siteConfig.name} Portfolio`,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description,
+      creator: contacts.x.value,
+      images: [{ url: ogImage.url, alt: ogImage.alt }],
+    },
   };
 };
 
@@ -33,8 +57,18 @@ const ProjectDetailPage = async ({ params }: PageProps) => {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Home", url: siteConfig.url },
+    { name: "Projects", url: `${siteConfig.url}/projects` },
+    { name: project.title, url: `${siteConfig.url}/projects/${project.slug}` },
+  ]);
+
   return (
     <ContentContainer>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <BackButton href="/projects" label="Back to Projects" />
 
       <DetailPageContent>

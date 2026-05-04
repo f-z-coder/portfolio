@@ -1,28 +1,48 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { contacts } from "@/data/contact";
 import { siteConfig } from "@/data/site";
 
+export const viewport: Viewport = {
+  themeColor: "#0c0a09",
+  colorScheme: "dark",
+};
+
+export const ogImageAlt = `${siteConfig.name} - ${siteConfig.jobTitle}`;
+
+export const ogImage = {
+  url: siteConfig.ogImagePath,
+  width: 1200,
+  height: 1200,
+  alt: ogImageAlt,
+} as const;
+
+export const seoKeywords = [
+  "Faiz Shaikh",
+  "Full-Stack Developer",
+  "Software Engineer",
+  "Web Developer",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Go",
+  "Python",
+  "Astro",
+  "Last9",
+  "Observability",
+  "Portfolio",
+];
+
 export const metadata: Metadata = {
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
-  keywords: [
-    "Faiz Shaikh",
-    "Full-Stack Developer",
-    "Web Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Go",
-    "Python",
-    "Astro",
-    "Last9",
-    "Observability",
-    "Software Engineer",
-    "Portfolio",
-  ],
-  authors: [{ name: siteConfig.name }],
+  keywords: seoKeywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  category: "technology",
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
@@ -31,28 +51,17 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImagePath,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.title,
-      },
-    ],
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
     creator: contacts.x.value,
-    images: [siteConfig.ogImagePath],
+    images: [{ url: ogImage.url, alt: ogImage.alt }],
   },
   robots: {
-    index: true,
-    follow: true,
     googleBot: {
-      index: true,
-      follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,

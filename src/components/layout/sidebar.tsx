@@ -32,7 +32,7 @@ export const Sidebar = () => {
           <div className="relative h-28 w-28 overflow-hidden rounded-2xl shadow-md lg:h-36 lg:w-36">
             <Image
               src={siteConfig.ogImagePath}
-              alt={siteConfig.name}
+              alt={`${siteConfig.name} - ${siteConfig.jobTitle}`}
               fill
               className="object-cover"
               priority
@@ -41,7 +41,11 @@ export const Sidebar = () => {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</h1>
+          {isHome ? (
+            <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</h1>
+          ) : (
+            <p className="text-2xl font-bold tracking-tight lg:text-3xl">{siteConfig.name}</p>
+          )}
           <div className="mt-2 flex items-center gap-2">
             <span className="bg-primary/10 text-primary -ml-2.5 rounded-full px-2.5 py-0.5 text-xs font-medium">
               {siteConfig.jobTitle}

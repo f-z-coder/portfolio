@@ -12,8 +12,12 @@ import { DetailSection } from "@/components/shared/detail-section";
 import { ActionLink } from "@/components/shared/action-link";
 import { RelatedExperienceCard } from "@/components/shared/related-experience-card";
 import { TechBadgeList } from "@/components/shared/tech-badge-list";
+import { contacts } from "@/data/contact";
 import { getAllExperiences, getExperienceBySlug } from "@/data/experience";
 import { siteConfig } from "@/data/site";
+import { ogImage, seoKeywords } from "@/lib/metadata";
+import { buildBreadcrumbJsonLd } from "@/lib/schema-markup";
+import { truncate } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -25,9 +29,32 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const experience = getExperienceBySlug(slug);
   if (!experience) return {};
+  const title = `${experience.title} at ${experience.company}`;
+  const url = `${siteConfig.url}/experience/${experience.slug}`;
+  const description = truncate(experience.summary);
   return {
-    title: `${experience.title} at ${experience.company} - ${siteConfig.name}`,
-    description: experience.summary,
+    title,
+    description,
+    keywords: Array.from(
+      new Set([...seoKeywords, experience.company, experience.title, ...experience.technologies])
+    ),
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      url,
+      title,
+      description,
+      siteName: `${siteConfig.name} Portfolio`,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: contacts.x.value,
+      images: [{ url: ogImage.url, alt: ogImage.alt }],
+    },
   };
 };
 
@@ -38,8 +65,20 @@ const ExperienceDetailPage = async ({ params }: PageProps) => {
 
   const others = getAllExperiences().filter((e) => e.slug !== slug);
 
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Home", url: siteConfig.url },
+    {
+      name: `${experience.title} at ${experience.company}`,
+      url: `${siteConfig.url}/experience/${experience.slug}`,
+    },
+  ]);
+
   return (
     <ContentContainer>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <BackButton href="/#experience" label="Back to Experience" />
 
       <DetailPageContent>

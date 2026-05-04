@@ -1,11 +1,14 @@
 {
-  "name": "Faiz Shaikh",
-  "short_name": " Faiz",
+  "name": "Faiz Shaikh - Full-Stack Developer",
+  "short_name": "Faiz Shaikh",
+  "description": "Portfolio of Faiz Shaikh, Full-Stack Developer working with React, Next.js, Go, TypeScript, and Python.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0c0a09",
+  "background_color": "#0c0a09",
   "icons": [
     { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
-  ],
-  "theme_color": "#e11d48",
-  "background_color": "#0c0a09",
-  "display": "standalone"
+  ]
 }
