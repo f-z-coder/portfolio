@@ -34,6 +34,7 @@ export const Sidebar = () => {
               src={siteConfig.ogImagePath}
               alt={`${siteConfig.name} - ${siteConfig.jobTitle}`}
               fill
+              sizes="(min-width: 1024px) 144px, 112px"
               className="object-cover"
               priority
             />
