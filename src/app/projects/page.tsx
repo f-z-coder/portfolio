@@ -52,7 +52,7 @@ const ProjectsContent = () => {
 
   return (
     <ContentContainer>
-      <BackButton href="/" label="Back to Home" />
+      <BackButton href="/#projects" label="Back to Featured Projects" />
 
       <DetailPageContent>
         <DetailPageHeading>All Projects</DetailPageHeading>

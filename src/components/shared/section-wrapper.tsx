@@ -7,7 +7,7 @@ interface SectionWrapperProps {
 }
 
 export const SectionWrapper = ({ id, children, className }: SectionWrapperProps) => (
-  <section id={id} className={cn("pb-16 sm:pb-24", className)}>
+  <section id={id} className={cn("scroll-mt-10 pb-16 sm:pb-24", className)}>
     {children}
   </section>
 );

@@ -35,7 +35,7 @@ const ProjectDetailPage = async ({ params }: PageProps) => {
 
   return (
     <ContentContainer>
-      <BackButton href="/#projects" label="Back to Projects" />
+      <BackButton href="/projects" label="Back to Projects" />
 
       <DetailPageContent>
         <div className="mb-8">

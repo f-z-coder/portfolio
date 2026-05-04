@@ -5,7 +5,7 @@ import { ContactLinks } from "@/components/shared/contact-links";
 import { DURATION, EASE, OFFSET, VIEWPORT } from "@/lib/animations";
 
 export const ContactSection = () => (
-  <section id="contact" className="pb-10">
+  <section id="contact" className="scroll-mt-10 pb-16 sm:pb-24">
     <motion.div
       initial={{ opacity: 0, y: OFFSET.md }}
       whileInView={{ opacity: 1, y: 0 }}
