@@ -28,7 +28,11 @@ export const ExperienceSection = () => (
         style={{ originY: 0 }}
       />
 
-      <StaggerGrid staggerDelay={STAGGER.loose} margin="section" className="relative space-y-12">
+      <StaggerGrid
+        staggerDelay={STAGGER.loose}
+        margin="section"
+        className="relative -mx-1 space-y-12 overflow-x-clip px-1"
+      >
         {experiences.map((exp, index) => (
           <div key={exp.slug} className="relative flex items-start md:justify-center">
             <motion.div
@@ -37,19 +41,24 @@ export const ExperienceSection = () => (
               }`}
               variants={{
                 hidden: { scale: 0 },
-                visible: {
-                  scale: 1,
-                  transition: SPRING.snappy,
-                },
+                visible: { scale: 1, transition: SPRING.snappy },
               }}
             />
-            <div
+            <motion.div
               className={`w-full md:w-[calc(50%-2rem)] ${
                 index % 2 === 0 ? "md:mr-auto md:pr-4" : "md:ml-auto md:pl-4"
               }`}
+              variants={{
+                hidden: { opacity: 0, x: index % 2 === 0 ? -40 : 40 },
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: DURATION.normal, ease: EASE },
+                },
+              }}
             >
-              <ExperienceCard experience={exp} index={index} />
-            </div>
+              <ExperienceCard experience={exp} />
+            </motion.div>
           </div>
         ))}
       </StaggerGrid>
